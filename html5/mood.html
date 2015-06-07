@@ -51,6 +51,7 @@
 		<script>
 			(function($, doc) {
 				mui.init({
+					swipeBack: true ,//启用右滑关闭功能
 					subpages: [{
 						url: 'mood_list.html', //下拉刷新内容页面地址
 						id: 'mood', //内容页面标志
@@ -60,21 +61,20 @@
 						}
 					}]
 				});
-							mui.plusReady(function() {
-//				document.getElementById('diary').addEventListener('tap', function() {
-//					mui.openWindow({
-//						url: 'diary.html',
-//						id: 'diary',
-//						styles: {
-//							top: '0px', //新页面顶部位置
-//							bottom: '0px' //新页面底部位置
-//						}
-//					})
-//					return false;
-//				})
-			});
+				mui.plusReady(function() {
+					//				document.getElementById('diary').addEventListener('tap', function() {
+					//					mui.openWindow({
+					//						url: 'diary.html',
+					//						id: 'diary',
+					//						styles: {
+					//							top: '0px', //新页面顶部位置
+					//							bottom: '0px' //新页面底部位置
+					//						}
+					//					})
+					//					return false;
+					//				})
+				});
 			}(mui, document));
-
 		</script>
 	</body>
 

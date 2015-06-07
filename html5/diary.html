@@ -10,7 +10,9 @@
 		<title></title>
 
 		<script>
-			mui.init();
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
 		</script>
 	</head>
 
@@ -42,13 +44,13 @@
 			function sub() {
 				var title = document.getElementById('title').value;
 				var text = document.getElementById('text').value;
-				if(!title || !text){
+				if (!title || !text) {
 					mui.alert("写完了再存呀~_~");
 					return 0;
 				}
 				Info = {};
 				Info.userId = localStorage.getItem('userId');
-				Info.moods = title+'@'+text;
+				Info.moods = title + '@' + text;
 				Info.controller = 'SaveMood';
 				mui.ajax('http://172.27.35.1/meet/controller/mood/mood_controller.php', {
 					data: Info,

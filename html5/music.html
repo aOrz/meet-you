@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="css/mui.min.css">
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<link rel="stylesheet" href="css/style.css" />
+		<style type="text/css">
+			img {
+				border-radius: 50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">好友录</h1>
+		</header>
+		<div class="mui-content-padded" style="margin-top: 48px;">
+			<h5>查找好友.圈子：</h5>
+			<form action="?" method="get" onsubmit="onSearch();return false;">
+				<div class="mui-input-row mui-search">
+					<input type="search" id="search" class="mui-input-clear" placeholder="添加好友" id="serach">
+				</div>
+			</form>
+			<div>
+				<ul class="mui-table-view" id="friendList">
+					<li class="mui-table-view-cell mui-hidden">cared
+						<div id="M_Toggle" class="mui-switch mui-active">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<div class="col-sm-4 hov">
+							<a class="card">
+								<div class="description">
+									<img src="http://2.guimeng.sinaapp.com/images/provider-icons/qqmusic.png" alt="Firebase"></img>
+									<h4>蓝莲花<small>
+许巍</small></h4>
+								</div>
+								<p>http://tsmusic24.tc.%71q.com/1007827.mp3</p>
+								<audio src="http://tsmusic24.tc.%71q.com/1007827.mp3" preload="none" loop controls></audio>
+							</a>
+
+						</div>
+					</li>
+				</ul>
+				<audio title="ddgsjhgfdhg" src="http://tsmusic24.tc.qq.com/1007827.mp3" preload="none" loop controls style="color: red;"></audio>
+				<div id="popovers">
+
+				</div>
+			</div>
+			<script type="text/javascript" src="js/app.js"></script>
+			<script>
+				mui.init({
+					swipeBack: true //启用右滑关闭功能
+				});
+				mui.plusReady(function() {
+					alert(555)
+					var p = plus.audio.createPlayer('http://tsmusic24.tc.qq.com/1007827.mp3');
+					p.play();
+				})
+			</script>
+
+	</body>
+
+</html>

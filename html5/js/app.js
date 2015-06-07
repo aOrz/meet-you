@@ -239,7 +239,6 @@
 						'</li>' +
 						'</ul>' +
 						'</div>';
-					alert(lis);
 					if (i == "num") {
 						lis = '';
 						po = '';

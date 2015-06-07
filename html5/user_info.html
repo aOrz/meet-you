@@ -94,7 +94,9 @@
 		<script src="js/mui.min.js"></script>
 		<script src="js/app.js"></script>
 		<script>
-			mui.init();
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
 			(function($, doc) {
 				$.init();
 				$.plusReady(function() {
@@ -120,22 +122,22 @@
 					});
 					logout.addEventListener('tap', function(event) {
 						localStorage.clear();
-//						var webview_style = {
-//							popGesture: "close"
-//						};
-//						var aniShow = "slide-in-right";
-//						mui.openWindow({
-//							id: 'login',
-//							url: 'login.html',
-//							styles: webview_style,
-//							show: {
-//								aniShow: aniShow
-//							},
-//							waiting: {
-//								autoShow: false
-//							}
-//						});
-						window.location.href="login.html";
+						//						var webview_style = {
+						//							popGesture: "close"
+						//						};
+						//						var aniShow = "slide-in-right";
+						//						mui.openWindow({
+						//							id: 'login',
+						//							url: 'login.html',
+						//							styles: webview_style,
+						//							show: {
+						//								aniShow: aniShow
+						//							},
+						//							waiting: {
+						//								autoShow: false
+						//							}
+						//						});
+						window.location.href = "login.html";
 					})
 					regButton.addEventListener('tap', function(event) {
 						var regInfo = {
