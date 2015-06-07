@@ -1,0 +1,61 @@
+.ui-page-login,
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+.mui-content {
+	height: 100%;
+}
+html,
+body {
+	background-color: #efeff4;
+}
+.mui-bar-nav {
+	background-color: rgb(102, 203, 255);
+}
+.mui-title {
+	color: white;
+}
+.mui-bar-nav~.mui-content {
+	padding: 0;
+}
+.mui-card .mui-control-content {
+	padding: 10px;
+}
+.mui-input-row label {
+	font-size: 15px;
+}
+.mui-input-row .text {
+	padding-left: 15px;
+	margin-left: 15px;
+	margin-bottom: 15px;
+	float: left;
+	width: 90%;
+	font-size: 15px;
+}
+.mui-navigate-left {
+	margin-left: 15px;
+	padding-left: 15px;
+	font-size: 15px;
+}
+.mui-input-row label~input,
+.mui-input-row label~select,
+.mui-input-row label~textarea {
+	float: left;
+	width: 90%;
+}
+.mui-btn-positive {
+	border: 0px;
+	border-radius: 10px;
+	width: 90%;
+	margin-top: 30px;
+}
+.mui-bar-nav a {
+	color: white;
+}
+.tj {
+	text-align: center;
+	margin: auto;
+}

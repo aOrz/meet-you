@@ -1,0 +1,91 @@
+<!DOCTYPE html >
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="css/mui.min.css" />
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<link rel="stylesheet" href="css/style.css" />
+		<title></title>
+		<script type="text/javascript" charset="utf-8" src="http://ytxz.sinaapp.com/public/ueditor1/ueditor.config.js"></script>
+		<script type="text/javascript" charset="utf-8" src="http://ytxz.sinaapp.com/public/ueditor1/ueditor.all.min.js">
+		</script>
+		<script>
+			mui.init();
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: white;"></a>
+			<h1 class="mui-title">留言本</h1>
+		</header>
+		<div class="mui-content" style="margin-top: 45px;">
+			<div class="mui-input-row">
+				<br />
+				<input class="text" type="text" placeholder="请输入标题" id="title">
+				<br />
+			</div>
+			<hr style="width: 90%;margin: 0 auto;" />
+			<div class="mui-input-row">
+				<label style="width: 100px">文章内容</label>
+				<br />
+				<script id="editor" type="text/plain" style="max-width:95%;height:200px;margin: 20px auto;"></script>
+			</div>
+			<hr style="width: 90%;margin: 0 auto;" />
+		</div>
+
+		<div class="tj">
+			<button name="submit" class="mui-btn mui-btn-positive" style="width: 90%;border-radius: 10px;" type="button" onclick="sub();">提交</button>
+		</div>
+		</div>
+
+		<script>
+			 //alert(localStorage['friendId'])
+			window.onload = function() {
+				var ue = UE.getEditor('editor');
+			}
+
+			function sub() {
+				//				plus.nativeUI.showWaiting("等待中...");
+				var title = document.getElementById("title").value;
+				var html = UE.getEditor('editor').getContent(); //获取所有html内容
+				// alert(html);
+				var text = UE.getEditor('editor').getContentTxt(); //获取纯文本
+				text = text.substring(0, 50); //选取前50字符
+				// alert(text);
+				if (!title || !html || !text) {
+					alert("请将表单填写完整 :)");
+				} else {
+					Info = {};
+					Info.userId = localStorage['friendId'];
+					Info.sendId = localStorage['userId'];
+					Info.message = html;
+					Info.title = title;
+					Info.breviary = text;
+					Info.controller = 'SaveMessage';
+					mui.ajax('http://172.27.35.1/meet/controller/message/message_controller.php', {
+						data: Info,
+						dataType: 'json', //服务器返回json格式数据
+						type: 'get', //HTTP请求类型
+						timeout: 10000, //超时时间设置为10秒；
+						success: function(data) {
+							if (!data) {
+								plus.nativeUI.toast('请求失败');
+							}
+							plus.nativeUI.toast('留言成功');
+							//history.go(0);
+						},
+						error: function(xhr, type, errorThrown) {
+							//异常处理；
+							plus.nativeUI.toast('服务器错误');
+						}
+					});
+				}
+				//plus.nativeUI.closeWaiting();
+			}
+		</script>
+	</body>
+
+</html>

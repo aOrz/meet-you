@@ -20,12 +20,12 @@ class Mood
 		}
 		$start  = ($page-1)*10;
 		$end    = 10;
-		$sql="select * from mood where user_id = ".$this->userId.
+		$sql="select * from mood where user_id = ".$this->moodInfo['userId'].
 		" ORDER BY indate DESC LIMIT ".$start." , ".$end."";
 		$result = mysqli_query($GLOBALS['DB'], $sql);
-			$list['num']=mysqli_num_rows($result);
+			$num=mysqli_num_rows($result);
 		$i=0;
-		if($list['num']>0){
+		if($num>0){
 			while ($row = mysqli_fetch_assoc($result)) {
 				# code...
 				$list[$i++] = $row;
@@ -51,7 +51,7 @@ class Mood
 		$date=date("Y-m-d H:i:s",time());
 		$sql="INSERT INTO `mood`(`mood_id`, `user_id`, `moods`, `indate`) 
 		VALUES 
-		(NULL,'".$this->userId."','".$this->moodInfo."','".$date."')";
+		(NULL,'".$this->moodInfo['userId']."','".$this->moodInfo['moods']."','".$date."')";
 		if (mysqli_query($GLOBALS['DB'], $sql)) {
 	 		return 1;
 	 	}else{
