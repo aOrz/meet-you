@@ -59,3 +59,67 @@ body {
 	text-align: center;
 	margin: auto;
 }
+.audioControl {} .audioControl a {
+	display: inline-block;
+	height: 30px;
+	margin: 0 0 0 8px;
+	width: 30px;
+}
+.audioControl span {
+	color: white;
+}
+#prevButton {
+	background: url("../img/music/bg3.png") no-repeat scroll -5px -108px transparent;
+	margin-left: 45px;
+}
+#playButton {
+	background: url("../img/music/bg3.png") no-repeat scroll -4px -144px transparent;
+}
+.next {
+	background: url("../img/music/bg3.png") no-repeat scroll -7px -183px transparent;
+}
+.mode-default {
+	background: url("../img/music/bg3.png") no-repeat scroll -6px -224px transparent;
+	background-repeat: no-repeat;
+	margin-left: 16px;
+	width: 35px;
+}
+#timeshow {
+	float: right;
+	color: white;
+}
+.mui-table-view-cell {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+}
+.mui-table-view-cell img {
+	width: 20%;
+	padding-top: 6px;
+}
+/*播放器*/
+
+.frmPlay {
+	float: right;
+}
+.l {
+	float: left;
+	padding-right: 6px;
+}
+.l img {
+	width: 40px;
+}
+.musicData {
+	padding: 55px 10px;
+	float: left;
+}
+.textBox {
+	padding-top: 8px;
+}
+.frmPlay {
+	float: right;
+	height: 45px;
+	width: 56px;
+	background: url(../img/music/fmplay.png) center center no-repeat;
+	background-size: 44%;
+}
