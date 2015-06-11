@@ -8,12 +8,12 @@ $keywords=$_GET['music'];
 //$keywords=mb_convert_encoding($keywords, "utf-8", "gb2312");
 $keywords=urlencode($keywords);
 
-$keywords='URL'.$keywords;
+$keywords='url'.$keywords;
 //echo $keywords;
 curl_setopt($ch, CURLOPT_URL, $keywords);
 $header = array( 
-'CLIENT-IP:URL/', 
-'X-FORWARDED-FOR:URL/', 
+'CLIENT-IP:url/', 
+'X-FORWARDED-FOR:url/', 
 ); 
 curl_setopt($ch, CURLOPT_HTTPHEADER, $header); 
 
@@ -40,27 +40,34 @@ preg_match_all("/\<a class\=\"card\"\>.*([.\n]*)\\n.*([.\n]*)\\n.*([.\n]*)\\n.*(
   $num= count($matches_a[0]);
   //echo $num[0][3];
  $row =array( );
-    for($i=0;$i<$num-1;$i++)
-	{
-		//var_dump($matches_a[0][$i]);	
-	    preg_match_all("/>[^\<]*/",$matches_a[0][$i],$matches_author);
-		 preg_match_all("/rel\=\"[^\"]*/",$matches_a[0][$i],$matches_url);
-	//	 var_dump($matches_url);
-	   // var_dump($matches_author);
-		 $murl=substr ($matches_author[0][10],1);
-		// $url_len=strlen($murl);
-	    //var_dump($matches_author);
-	    // $num[i] = {
-	    // 	musicName:substr ($matches_author[0][6],1),
-	    // 	author:substr ($matches_author[0][3],1),
-	    // 	url:$murl
-	    // }	
-		 //echo substr ($matches_author[0][10],1);
-		 $row[$i]['author'] = substr ($matches_author[0][3],1);
-		 $row[$i]['name'] = substr ($matches_author[0][6],1);
-		  $row[$i]['url'] = $murl;
+ //    for($i=0;$i<$num-1;$i++)
+	// {
+	// 	//var_dump($matches_a[0][$i]);	
+	//     preg_match_all("/>[^\<]*/",$matches_a[0][$i],$matches_author);
+	// 	 preg_match_all("/rel\=\"[^\"]*/",$matches_a[0][$i],$matches_url);
+	// //	 var_dump($matches_url);
+	//    // var_dump($matches_author);
+	// 	 $murl=substr ($matches_author[0][10],1);
+	// 	// $url_len=strlen($murl);
+	//     //var_dump($matches_author);
+	//     // $num[i] = {
+	//     // 	musicName:substr ($matches_author[0][6],1),
+	//     // 	author:substr ($matches_author[0][3],1),
+	//     // 	url:$murl
+	//     // }	
+	// 	 //echo substr ($matches_author[0][10],1);
+	// 	 $row[$i]['author'] = substr ($matches_author[0][3],1);
+	// 	 $row[$i]['name'] = substr ($matches_author[0][6],1);
+	// 	  $row[$i]['url'] = $murl;
 
 
-	}
+	// }
+ preg_match_all("/>[^\<]*/",$matches_a[0][0],$matches_author);
+ //var_dump($matches_author[0]);
+	 $murl=substr ($matches_author[0][10],1);
+		 $row['author'] = substr ($matches_author[0][3],1);
+		 $row['name'] = substr ($matches_author[0][6],1);
+		  $row['url'] = $murl;
+
 	 echo json_encode($row);
 ?>
