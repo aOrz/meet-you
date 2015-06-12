@@ -1,4 +1,4 @@
 <?php
 //echo phpinfo();
-header("location: ./signin/view");
+header("location: ./view/slide.html");
 ?>
