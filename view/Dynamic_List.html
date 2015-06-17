@@ -406,6 +406,17 @@
 			cache: false,
 			success: function(data) {
 				for(var i in data){
+										sh = i;
+					$.ajax({
+						url: "../controller/user/user_controller.php",
+						dataType: "json",
+						data: {
+							userId: data[sh].send_id,
+							controller: 'getInfo'
+						},
+						async : false, 
+						cache: false,
+						success: function(datas) {
 					var html = 		'<div class="row mt">'+
 													'<a href="#">'+
 														'<div class="col-md-12 mb">'+
@@ -413,25 +424,32 @@
 																'<span class="fa fa-star cd-date"> '+data[i].data+'</span>'+
 															'</div>'+
 															'<div class="col-md-6">'+
-																'<span class="fa fa-star cd-date">  From:王振</span>'+
+																'<span class="fa fa-star cd-date">  From:'+ datas.info.userNickName+'</span>'+
 															'</div>'+
 														'</div>'+
 														'<div class="col-md-12 mb">'+
 															'<div class="col-md-12">'+
 																'<p>'+data[i].breviary+
-																	'<a href="#">阅读全文</a>'+
+																	'<a onclick="other(' + data[sh].id + ',' + data[sh].send_id + ')">阅读全文</a>'+
 																'</p>'+
 															'</div>'+
 														'</div>'+
 													'</a>'+
 												'</div>';
 											$('#list').append(html);
+										}
+					});
 				}
 			},
 			error: function(e) {
 				alert(e);
 			}
 		});
+				function other(id, send) {
+			localStorage.setItem('wzid',id);
+			localStorage.setItem('sendId',send);
+			window.location.href='Message.html';
+		}
 	</script>
 
 </html>

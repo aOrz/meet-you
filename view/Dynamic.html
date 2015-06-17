@@ -143,8 +143,6 @@
 
 										<div class="row mt" id="list">
 
-
-
 										</div>
 										<button class="btn btn-block" style="width: 100%;">没有更多了</button>
 									</div>
@@ -361,45 +359,70 @@
 		$.ajax({
 			url: "../controller/message/message_controller.php",
 			dataType: "json",
-			data: {userId:localStorage['userId'],
-			page:1,controller:'GetMessageListByUserId'},
+			data: {
+				userId: localStorage['userId'],
+				page: 1,
+				controller: 'GetMessageListByUserId'
+			},
 			cache: false,
 			success: function(data) {
-				for(var i in data){
-					var html = 	'<div class="col-md-6 mb">'+
-												'<div class="row mt">'+
-													'<div class="col-md-12 mb">'+
-														'<div class="white-panel pn">'+
-													'		<div class="row">'+
-																'<div class="col-md-4">'+
-																	'<div class="tx_left">'+
-																		'<p>'+
-																			'<img src="assets/img/ui-zac.jpg" class="img-circle" width="100">'+
-																		'</p>'+
-																		'<p><b>王振</b>'+
-																		'</p>'+
-																	'</div>'+
-																'</div>'+
-																'<div class="col-md-8">'+
-																	'<span class="cd-date">'+data[i].data+'</span>'+
-																	'<div class="ly">'+
-																		'<p>'+data[i].breviary+'......'+
-																			'<a data-rol="'+data[i].id+'">阅读全文</a>'+
-																		'</p>'+
-																	'</div>'+
-																'</div>'+
-															'</div>'+
-														'</div>'+
-													'</div>'+
-												'</div>'+
-											'</div>';
-											$('#list').append(html);
+				for (var i in data) {
+					sh = i;
+					$.ajax({
+						url: "../controller/user/user_controller.php",
+						dataType: "json",
+						data: {
+							userId: data[sh].send_id,
+							controller: 'getInfo'
+						},
+						async : false, 
+						cache: false,
+						success: function(datas) {
+							var html = '<div class="col-md-6 mb">' +
+								'<div class="row mt">' +
+								'<div class="col-md-12 mb">' +
+								'<div class="white-panel pn">' +
+								'		<div class="row">' +
+								'<div class="col-md-4">' +
+								'<div class="tx_left">' +
+								'<p>' +
+								'<img src="assets/img/ui-zac.jpg" class="img-circle" width="100">' +
+								'</p>' +
+								'<p><b>' + datas.info.userNickName + '</b>' +
+								'</p>' +
+								'</div>' +
+								'</div>' +
+								'<div class="col-md-8">' +
+								'<span class="cd-date">' + data[sh].data + '</span>' +
+								'<div class="ly">' +
+								'<p>' + data[sh].breviary + '......' +
+								'<a onclick="other(' + data[sh].id + ',' + data[sh].send_id + ')">阅读全文</a>' +
+								'</p>' +
+								'</div>' +
+								'</div>' +
+								'</div>' +
+								'</div>' +
+								'</div>' +
+								'</div>' +
+								'</div>';
+							$('#list').append(html);
+						},
+						error: function(e) {
+							alert(e);
+						}
+					});
 				}
 			},
 			error: function(e) {
 				alert(e);
 			}
 		});
+
+		function other(id, send) {
+			localStorage.setItem('wzid',id);
+			localStorage.setItem('sendId',send);
+			window.location.href='Message.html';
+		}
 	</script>
 
 </html>

@@ -77,7 +77,7 @@
 						<!--个性签名结束-->
 						<!--我的动态开始-->
 						<li class="mt">
-							<a href="Dynamic.html">
+							<a class="active" href="Dynamic.html">
 								<i class="fa fa-refresh"></i>
 								<span>我的动态</span>
 								<i class="fa fa-angle-right" style="float: right;"></i>
@@ -86,7 +86,7 @@
 						<!--我的动态结束-->
 						<!--个人资料开始-->
 						<li class="mxt">
-							<a class="active" href="Personal_Information.html">
+							<a  href="Personal_Information.html">
 								<i class="fa fa-user"></i>
 								<span>个人资料</span>
 								<i class="fa fa-angle-right" style="float: right;"></i>
@@ -137,7 +137,7 @@
 								<div class="col-md-12 col-sm-12 mb">
 									<div class="white-panel pn donut-chart">
 										<div class="white-header">
-											<h5><span>王振</span>的资料</h5>
+											<h5><span></span>资料</h5>
 										</div>
 										<div class="row">
 											<div class="col-sm-12 col-xs-12 goleft tx">
@@ -147,67 +147,66 @@
 										</div>
 										<div class="row">
 											<div class="col-sm-6 col-xs-6 goleft">
-												<p id="cg_name">姓名
+												<p >姓名
 													<input type="text" />
-													<label>孙淑敏</label>
+													<label id="cg_name">孙淑敏</label>
 												</p>
 											</div>
 											<div class="col-sm-6 col-xs-6 goleft">
-												<p id="cg_email">邮箱
+												<p >邮箱
 													<input type="text" />
-													<label>1065004086@qq.com</label>
-												</p>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-sm-6 col-xs-6 goleft">
-												<p id="cg_sex">性别
-													<input type="text" />
-													<label>女</label>
-												</p>
-											</div>
-											<div class="col-sm-6 col-xs-6 goleft">
-												<p id="cg_phonenumber">手机
-													<input type="text" />
-													<label>18865513351</label>
+													<label id="cg_email">1065004086@qq.com</label>
 												</p>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-sm-6 col-xs-6 goleft">
-												<p id="cg_QQ"> Q&nbsp;Q
+												<p >性别
+													<input type="text" />
+													<label id="cg_sex">女</label>
+												</p>
+											</div>
+											<div class="col-sm-6 col-xs-6 goleft">
+												<p >手机
+													<input type="text" />
+													<label id="cg_phonenumber">18865513351</label>
+												</p>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-sm-6 col-xs-6 goleft">
+												<p > Q&nbsp;Q
 													<input type="text" style="margin-left: 24px;" />
-													<label>1065004086</label>
+													<label id="cg_QQ">1065004086</label>
 												</p>
 											</div>
 											<div class="col-sm-6 col-xs-6 goleft">
-												<p id="cg_weibo">微博
+												<p >微博
 													<input type="text" />
-													<label>小财迷耳朵3</label>
+													<label id="cg_weibo">小财迷耳朵3</label>
 												</p>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-sm-6 col-xs-6 goleft">
-												<p id="cg_weixin">微信
+												<p >微信
 													<input type="text" />
-													<label>sunshumin69</label>
+													<label id="cg_weixin">sunshumin69</label>
 												</p>
 											</div>
 											<div class="col-sm-6 col-xs-6 goleft">
-												<p id="cg_school">学校
+												<p >学校
 													<input type="text" />
-													<label>烟台大学</label>
+													<label id="cg_school">烟台大学</label>
 												</p>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-sm-12 col-xs-12 goleft">
-												<p id="cg_intro">个性签名
-													<textarea>
+												<p >个性签名
+													<textarea id="cg_intro"> 
 
 													</textarea>
-													<label>快快乐乐的生活</label>
 												</p>
 											</div>
 										</div>
@@ -221,16 +220,16 @@
 								<div class="col-md-12 col-sm-12 mb">
 									<div class="white-panel pn donut-chart">
 										<div class="white-header">
-											<h5><span>王振</span>的留言</h5>
+											<h5><span id="sname">王振</span>的留言</h5>
 										</div>
-										<div class="row">
+										<div class="row" id="message">
 											<!--一条动态开始-->
 											<div class="col-md-12 mb">
 												<div class="row mt">
 													<div class="col-md-12 mb">
 														<div class="white-panel pn">
 															<div class="row">
-																<div class="col-md-12">		
+																<div class="col-md-12" >		
 																	<div class="ly">
 																		<span class="cd-date">2015-01-06 12:24</span>
 																		<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上 好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习......
@@ -425,17 +424,77 @@
 
 		</section>
 	</body>
-	<script type="application/javascript">
+	
+	<script src="assets/js/jquery.js"></script>
+	<script src="assets/js/jquery-1.8.3.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+	<script src="assets/js/jquery.scrollTo.min.js"></script>
+	<script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+	<script src="assets/js/jquery.sparkline.js"></script>
+
+	<!--common script for all pages-->
+	<script src="assets/js/common-scripts.js"></script>
+
+	<script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
+	<script type="text/javascript" src="assets/js/gritter-conf.js"></script>
+
+	<!--script for this page-->
+	<script src="assets/js/sparkline-chart.js"></script>
+	<script src="assets/js/zabuto_calendar.js"></script>
+<script type="application/javascript">
 		var elementnames = ["cg_name",
 			"cg_email", "cg_sex", "cg_phonenumber",
 			"cg_QQ", "cg_weibo", "cg_weixin", "cg_school", "cg_intro"
 		];
-		var elements = ["", "", "", "", "", "", "", "", ""];
+		 elements = ["", "", "", "", "", "", "", "", ""];
 		var i;
 		for (i = 0; i < elementnames.length; i++) {
 			elements[i] = document.getElementById(elementnames[i]);
 		}
-
+		function info(){
+			$.ajax({
+				url: "../controller/user/user_controller.php",
+				dataType: "json",
+				data: {
+					userId: localStorage['sendId'],
+					controller: 'getInfo'
+				},
+				cache: false,
+				success: function(data) {
+					elements[0].innerHTML = data.info.userNickName;
+					elements[1].innerHTML  = data.info.userMail
+					elements[2].innerHTML  = data.info.userSex
+					elements[3].innerHTML  = data.info.userTel
+					elements[4].innerHTML  = data.info.userQq
+					elements[5].innerHTML  = data.info.userWeiBo
+					elements[6].innerHTML  = data.info.userWeiXin
+					elements[7].innerHTML  = data.info.userSchool
+					elements[8].innerHTML  = data.info.userIntroduction
+					document.getElementById('sname').innerHTML = data.info.userNickName;
+				},
+				error: function(e) {
+					alert(e);
+				}
+			});
+			$.ajax({
+				url: "../controller/message/message_controller.php",
+				dataType: "json",
+				data: {
+					messageId: localStorage['wzid'],
+					controller: 'GetMessageById'
+				},
+				cache: false,
+				success: function(data) {
+//					alert(data.messages)
+					$('#message').empty().append(data.messages);
+				},
+				error: function(e) {
+					alert(e);
+				}
+			});
+		}
+		info();
 		function Change_Information() {
 			document.getElementById("cg_tx").style.display = "inline";
 			alert("ssaaa");
@@ -467,22 +526,4 @@
 			}
 		}
 	</script>
-	<script src="assets/js/jquery.js"></script>
-	<script src="assets/js/jquery-1.8.3.min.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
-	<script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
-	<script src="assets/js/jquery.scrollTo.min.js"></script>
-	<script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
-	<script src="assets/js/jquery.sparkline.js"></script>
-
-	<!--common script for all pages-->
-	<script src="assets/js/common-scripts.js"></script>
-
-	<script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
-	<script type="text/javascript" src="assets/js/gritter-conf.js"></script>
-
-	<!--script for this page-->
-	<script src="assets/js/sparkline-chart.js"></script>
-	<script src="assets/js/zabuto_calendar.js"></script>
-
 </html>

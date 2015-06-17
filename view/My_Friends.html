@@ -384,11 +384,13 @@
 		}
 	</script>
 	<script>
+	
 		$.ajax({
 			url: "../controller/user/user_controller.php",
 			dataType: "json",
 			data: {
-				userId: 2,
+				userId: localStorage['userId'],
+				
 				controller: 'getAllFriend'
 			},
 			cache: false,
@@ -408,7 +410,7 @@
 						'<button class="btn btn-info">他写给我的</button>' +
 						'</div>' +
 						'<div class="col-md-6">' +
-						'<a href="To_My_Friends.html"><button class="btn btn-success">写给他</button></a>' +
+						'<a onclick="writes('+data[i].id+')"><button class="btn btn-success">写给他</button></a>' +
 						'</div>' +
 						'</div>' +
 						'</div>' +
@@ -434,12 +436,17 @@
 				dataType: "json",
 				data: {
 					userId: localStorage['userId'],
+					nickName:ss,
 					controller: controller
 				},
 				cache: false,
 				success: function(data) {
+					if(num === 2)
+					data = eval('(' + data + ')');
+					alert(data)
+					$('#list').empty();
 					for (var i in data) {
-						if (i === 'num')
+						if (i === 'num' || i>10)
 							break;
 						var html = '<div class="col-md-6 mb">' +
 							'<div class="white-panel pn">' +
@@ -453,7 +460,7 @@
 							'<button class="btn btn-info">他写给我的</button>' +
 							'</div>' +
 							'<div class="col-md-6">' +
-							'<a href="To_My_Friends.html"><button class="btn btn-success">写给他</button></a>' +
+							'<a onclick="writes('+data[i].id+')"><button class="btn btn-success">写给他</button></a>' +
 							'</div>' +
 							'</div>' +
 							'</div>' +
@@ -465,9 +472,11 @@
 					alert(e);
 				}
 			});
-			$('#list').empty();
-			var html = "<a>dsdgty</a>"
-			$('#list').append(html);
+		}
+		function writes(writeId){
+//			alert(writeId);
+			localStorage.setItem('writeId',writeId);
+			window.location.href="To_My_Friends.html";
 		}
 	</script>
 
