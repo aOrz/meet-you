@@ -23,7 +23,7 @@
 			.pn {
 				height: 200px;
 			}
-			.btn{
+			.btn {
 				width: 50%;
 			}
 		</style>
@@ -140,19 +140,23 @@
 											<a id="serach_friends"><span class="fa fa-search">搜索好友</span></a>&nbsp;&nbsp;&nbsp;
 											<a id="add_friends"><span class="fa fa-plus">添加好友</span></a>
 										</div>
-										<div class="row mt " id="friend_block_search" >
+										<div class="row mt " id="friend_block_search">
 											<label class="search_input">
-												<input type="text" placeholder="输入手机号/用户名" />
-												<a><button class="btn" style="width: auto;vertical-align:baseline;">搜索</button></a>
+												<input type="text" id="name" placeholder="用户名" />
+												<a>
+													<button class="btn" style="width: auto;vertical-align:baseline;" onclick="search(1)">搜索</button>
+												</a>
 											</label>
 										</div>
-										<div class="row mt " id="friend_block_add" >
+										<div class="row mt " id="friend_block_add">
 											<label class="search_input">
-												<input type="text" placeholder="输入手机号/用户名" />
-												<a><button class="btn" style="width: auto;vertical-align:baseline;">添加</button></a>
+												<input type="text" id="names" placeholder="用户名" />
+												<a>
+													<button class="btn" style="width: auto;vertical-align:baseline;" onclick="search(2)">添加</button>
+												</a>
 											</label>
 										</div>
-										<div class="row mt" id="list">	
+										<div class="row mt" id="list">
 										</div>
 									</div>
 								</div>
@@ -297,7 +301,7 @@
 
 		</section>
 	</body>
-	
+
 	<script src="assets/js/jquery.js"></script>
 	<script src="assets/js/jquery-1.8.3.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
@@ -316,32 +320,30 @@
 	<script src="assets/js/sparkline-chart.js"></script>
 	<script src="assets/js/zabuto_calendar.js"></script>
 	<script>
-		var flag_1=0;
-		var flag_2=0;
-		document.getElementById("serach_friends").onclick=function(){
-			if(flag_1==0){
-			document.getElementById("friend_block_add").style.display="none";
-			document.getElementById("friend_block_search").style.display="block";
-			flag_1=1;
-			}
-			else{
-			document.getElementById("friend_block_search").style.display="none";
-			flag_1=0;
+		var flag_1 = 0;
+		var flag_2 = 0;
+		document.getElementById("serach_friends").onclick = function() {
+			if (flag_1 == 0) {
+				document.getElementById("friend_block_add").style.display = "none";
+				document.getElementById("friend_block_search").style.display = "block";
+				flag_1 = 1;
+			} else {
+				document.getElementById("friend_block_search").style.display = "none";
+				flag_1 = 0;
 			}
 		}
-		document.getElementById("add_friends").onclick=function(){
-			if(flag_2==0){
-			document.getElementById("friend_block_search").style.display="none";
-			document.getElementById("friend_block_add").style.display="block";
-			flag_2=1;
-			}
-			else{
-			document.getElementById("friend_block_add").style.display="none";
-			flag_2=0;
+		document.getElementById("add_friends").onclick = function() {
+			if (flag_2 == 0) {
+				document.getElementById("friend_block_search").style.display = "none";
+				document.getElementById("friend_block_add").style.display = "block";
+				flag_2 = 1;
+			} else {
+				document.getElementById("friend_block_add").style.display = "none";
+				flag_2 = 0;
 			}
 		}
 	</script>
-	
+
 	<script type="application/javascript">
 		$(document).ready(function() {
 			$("#date-popover").popover({
@@ -381,41 +383,92 @@
 			console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
 		}
 	</script>
-		<script>
+	<script>
 		$.ajax({
 			url: "../controller/user/user_controller.php",
 			dataType: "json",
-			data: {userId:2,
-			controller:'getAllFriend'},
+			data: {
+				userId: 2,
+				controller: 'getAllFriend'
+			},
 			cache: false,
 			success: function(data) {
-				for(var i in data){
-					if(i === 'num')
-					break;
-					var html = 		'<div class="col-md-6 mb">'+
-												'<div class="white-panel pn">'+
-													'<p>'+
-														'<img src="assets/img/ui-zac.jpg" class="img-circle" width="80">'+
-													'</p>'+
-													'<p><b>'+data[i].nickname+'</b>'+
-													'</p>'+
-													'<div class="row">'+
-														'<div class="col-md-6">'+
-															'<button class="btn btn-info">他写给我的</button>'+
-														'</div>'+
-														'<div class="col-md-6">'+
-															'<a href="To_My_Friends.html"><button class="btn btn-success">写给他</button></a>'+
-														'</div>'+
-													'</div>'+
-												'</div>'+
-											'</div>';
-											$('#list').append(html);
+				for (var i in data) {
+					if (i === 'num')
+						break;
+					var html = '<div class="col-md-6 mb">' +
+						'<div class="white-panel pn">' +
+						'<p>' +
+						'<img src="assets/img/ui-zac.jpg" class="img-circle" width="80">' +
+						'</p>' +
+						'<p><b>' + data[i].nickname + '</b>' +
+						'</p>' +
+						'<div class="row">' +
+						'<div class="col-md-6">' +
+						'<button class="btn btn-info">他写给我的</button>' +
+						'</div>' +
+						'<div class="col-md-6">' +
+						'<a href="To_My_Friends.html"><button class="btn btn-success">写给他</button></a>' +
+						'</div>' +
+						'</div>' +
+						'</div>' +
+						'</div>';
+					$('#list').append(html);
 				}
 			},
 			error: function(e) {
 				alert(e);
 			}
 		});
+
+		function search(num) {
+			if(num ===1){
+			 	var ss = $('#name').val();
+			 	var controller = 'getAllFriend' ;
+			}else{
+				var ss = $('#names').val();
+				var controller = 'saerchFriend' ;
+			}
+			$.ajax({
+				url: "../controller/user/user_controller.php",
+				dataType: "json",
+				data: {
+					userId: localStorage['userId'],
+					controller: controller
+				},
+				cache: false,
+				success: function(data) {
+					for (var i in data) {
+						if (i === 'num')
+							break;
+						var html = '<div class="col-md-6 mb">' +
+							'<div class="white-panel pn">' +
+							'<p>' +
+							'<img src="assets/img/ui-zac.jpg" class="img-circle" width="80">' +
+							'</p>' +
+							'<p><b>' + data[i].nickname + '</b>' +
+							'</p>' +
+							'<div class="row">' +
+							'<div class="col-md-6">' +
+							'<button class="btn btn-info">他写给我的</button>' +
+							'</div>' +
+							'<div class="col-md-6">' +
+							'<a href="To_My_Friends.html"><button class="btn btn-success">写给他</button></a>' +
+							'</div>' +
+							'</div>' +
+							'</div>' +
+							'</div>';
+						$('#list').append(html);
+					}
+				},
+				error: function(e) {
+					alert(e);
+				}
+			});
+			$('#list').empty();
+			var html = "<a>dsdgty</a>"
+			$('#list').append(html);
+		}
 	</script>
 
 </html>

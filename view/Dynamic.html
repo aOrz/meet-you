@@ -361,7 +361,7 @@
 		$.ajax({
 			url: "../controller/message/message_controller.php",
 			dataType: "json",
-			data: {userId:2,
+			data: {userId:localStorage['userId'],
 			page:1,controller:'GetMessageListByUserId'},
 			cache: false,
 			success: function(data) {
