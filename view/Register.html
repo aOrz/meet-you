@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title></title>
+	<link rel="stylesheet" href="css/login.css" />
+	<!--侧滑CSS-->
+	<style type="text/css">
+		#page {
+			height: 100%;
+		}
+		.panel {
+			display: none;
+			width: 100%;
+		}
+		.login {
+			height: 100%;
+		}
+	</style>
+	<!--侧滑CSS结束-->
+
+</head>
+
+<body style="overflow: hidden;">
+
+	<!--注册-->
+	<div id="page">
+		<div class="login">
+			<div class="container">
+				<div class="left">
+					<img src="img/Register_Left_Image.png" style="width: 50%;" />
+				</div>
+				<div class="right">
+					<div class="logo">
+						<img src="img/Logo.png" />
+					</div>
+					<div class="login_content register_content" style="top: -40px;">
+						<div class="content">
+							<div class="user_Head_portrait">
+								<img src="img/Login_Right_Person.png" />
+							</div>
+							<form method="get" style="margin: -20px;">
+								<div class="login_input">
+									<input id="zc_email" type="text" name="userMail" placeholder="邮箱" />
+									<input id="zc_username" type="text" name="userNickName" placeholder="昵称" />
+									<input id="zc_phonenumber" type="text" name="userTel" placeholder="手机号" />
+									<input id="zc_psw" type="password" name="userPWD" placeholder="密码" />
+									<input id="zc_psw_2" type="password" name="userPWD_2" placeholder="确认密码" />
+								</div>
+								<div class="login_btn">
+									<!--注册按钮-->
+									<button name="controller" value="reg" onclick="CheckRegister();return false;" class="btn_register"></button>
+								</div>
+							</form>
+						</div>
+					</div>
+					<!--登陆按钮-->
+					<a href="Login.html" style="position: relative;top: -20px;">已有账号？点此登陆</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--注册结束-->
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.panelslider.min.js"></script>
+
+	<!--验证注册JS-->
+	<script>
+		function CheckRegister() {
+//			alert("sssss");
+			var email = document.getElementById('zc_email').value;
+			var username = document.getElementById('zc_username').value;
+			var phonenumber = document.getElementById("zc_phonenumber").value;
+			var psw = document.getElementById("zc_psw").value;
+			var psw_2 = document.getElementById('zc_psw_2').value;
+//			alert(email+"  "+username+"  "+phonenumber+"   "+psw+"  "+psw_2);
+			//验证邮箱格式
+			function Isyx(yx) {
+				var reyx = /^([.a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
+				return (reyx.test(yx));
+			}
+			if (!Isyx(email)) {
+				alert("请输入正确的邮箱地址!");
+				$("#zc_email").focus();
+				return 0;
+			}
+			//密码长度
+			if (psw.length < 6) {
+				alert("密码长度不能小于六位");
+				return 0;
+			}
+			//两次密码验证
+			if (psw != psw_2) {
+				alert("两次密码不同，请重新输入");
+				return 0;
+			}
+			//昵称长度
+			if (username.length > 8) {
+				alert("昵称太长了~~~");
+				return 0;
+			}
+			if (email && username && phonenumber && psw) {
+				data1 = {
+					email: email,
+					username: username,
+					phonenumber: phonenumber,
+					psw: psw
+				};
+				$.ajax({
+					url: "../controller/user/user_controller.php",
+					dataType: "json",
+					data: data1,
+					cache: false,
+					success: function(data) {
+						if (data == 0) {
+							alert("用户名或密码错误！");
+						} else
+						if (data != null) {
+							alert("注册成功");
+							window.event.returnValue = false;
+							window.location.href = "Dynamic.html";
+						}
+					},
+					error: function(e) {
+						alert("用户邮箱已注册");
+					}
+				});
+			} else {
+				alert("请把信息输入完整");
+			}
+		}
+	</script>
+	<!--验证注册JS结束-->
+</body>
+</html>

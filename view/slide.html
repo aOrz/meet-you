@@ -38,14 +38,14 @@
 							<div class="user_Head_portrait">
 								<img src="img/Login_Right_Person.png" />
 							</div>
-							<form action="#" method="get">
+							<form method="get">
 								<div class="login_input">
-									<input id="email" type="text" name="username" placeholder="用户名" />
-									<input id="password" type="password" name="password" placeholder="密码" />
+									<input id="email" name="userMail" type="text" placeholder="用户名" />
+									<input id="password" name="userPWD" type="password" placeholder="密码" />
 								</div>
 								<div class="login_btn">
 									<!--登陆按钮-->
-									<input class="btn_login" onclick="CheckLogin()" type="submit" value=" " />								
+									<button class="btn_login" value="login" onclick="CheckLogin();return false;" name="controller"></button>
 								</div>
 							</form>
 						</div>
@@ -57,7 +57,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 	</div>
 	<!--登陆结束-->
 
@@ -79,15 +79,15 @@
 							</div>
 							<form action="#" method="post" style="margin: -20px;">
 								<div class="login_input">
-									<input id="email" type="text" name="email" placeholder="邮箱" />
-									<input id="username" type="text" name="username" placeholder="昵称" />
-									<input id="phonenumber" type="text" name="phonenumber" placeholder="手机号" />
-									<input id="psw" type="password" name="phonenumber" placeholder="密码" />
-									<input id="psw_2" type="password" name="phonenumber" placeholder="确认密码" />
+									<input id="zc_email" type="text" name="email" placeholder="邮箱" />
+									<input id="zc_username" type="text" name="username" placeholder="昵称" />
+									<input id="zc_phonenumber" type="text" name="phonenumber" placeholder="手机号" />
+									<input id="zc_psw" type="password" name="phonenumber" placeholder="密码" />
+									<input id="zc_psw_2" type="password" name="phonenumber" placeholder="确认密码" />
 								</div>
 								<div class="login_btn">
 									<!--注册按钮-->
-									<input onclick="CheckRegister()" class="btn_register" type="submit" value=" " />									
+									<button onclick="CheckRegister()" class="btn_register"></button>
 								</div>
 							</form>
 						</div>
@@ -100,9 +100,10 @@
 	</div>
 	<!--注册结束-->
 
-	<!--侧滑JS-->
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/jquery.panelslider.min.js"></script>
+	
+	<!--侧滑JS-->
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#left-panel-link').panelslider();
@@ -119,98 +120,103 @@
 	<!--侧滑JS结束-->
 
 	<!--验证登陆JS-->
-	<script>
+	<script type="text/javascript">
 		function CheckLogin() {
 			var email = document.getElementById("email").value;
 			var password = document.getElementById("password").value;
-			
 			if ((!email) || (!password)) {
 				alert("请把信息输入完整");
 			} else {
 				data1 = {
-					username: username,
-					password: password
+					controller: "login",
+					userMail: email,
+					userPWD: password
 				};
 				$.ajax({
-					url: "#",
-					dataType: "jsonp",
+					url: "../controller/user/user_controller.php",
+					//dataType: "json",
 					data: data1,
-					jsonp: "jsoncallback",
 					cache: false,
+					async: false,
 					success: function(data) {
 						if (data == 0) {
 							alert("用户名或密码错误！");
 						} else
 						if (data != null) {
-							window.location.href = "index.html";
+							alert("success");
+							window.event.returnValue = false;
+							window.location.href = "Dynamic.html";
 						}
 					},
 					error: function(e) {
-						alert("服务器抽风了~请重试！");
+						alert("error");
 					}
 				});
 			}
 		};
 	</script>
 	<!--验证JS结束-->
+
 	<!--验证注册JS-->
 	<script>
 		function CheckRegister() {
-			var email = document.getElementById('email').value;
-			var username = document.getElementById('username').value;
-			var phonenumber = document.getElementById("phonenumber").value;
-			var psw = document.getElementById("psw").value;
-			var psw_2 = document.getElementById('pwd_2').value;
+			alert("sssss");
+//			var email = document.getElementById('zc_email').value;
+//			var username = document.getElementById('zc_username').value;
+//			var phonenumber = document.getElementById("zc_phonenumber").value;
+//			var psw = document.getElementById("zc_psw").value;
+//			var psw_2 = document.getElementById('zc_psw_2').value;
+//			alert(email+"  "+username+"  "+phonenumber+"   "+psw+"  "+psw_2);
 			//验证邮箱格式
-			function Isyx(yx) {
-				var reyx = /^([.a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
-				return (reyx.test(yx));
-			}
-			if (!Isyx(email)) {
-				alert("请输入正确的邮箱地址!")
-				$('email').focus();
-				return false;
-			}
+//			function Isyx(yx) {
+//				var reyx = /^([.a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
+//				return (reyx.test(yx));
+//			}
+//			if (!Isyx(email)) {
+//				alert("请输入正确的邮箱地址!");
+//				$("#zc_email").focus();
+//				alert("sss");
+//			}
 			//密码长度
-			if (pwd.length < 6) {
-				alert("密码长度不能小于六位");
-				return 0;
-			}
+//			if (pwd.length < 6) {
+//				alert("密码长度不能小于六位");
+//				return 0;
+//			}
 			//两次密码验证
-			if (psw != psw_2) {
-				alert("两次密码不同，请重新输入");
-				return 0;
-			}
+//			if (psw != psw_2) {
+//				alert("两次密码不同，请重新输入");
+//				return 0;
+//			}
 			//昵称长度
-			if (username.length > 8) {
-				alert("昵称太长了~~~");
-				return 0;
-			}
-			if (email && username && phonenumber && psw) {
-				data2 = {
-					email: email,
-					username: username,
-					phonenumber: phonenumber,
-					psw: psw
-				};
-				$.ajax({
-					url: "#",
-					dataType: "jsonp",
-					data: data1,
-					jsonp: "jsoncallback",
-					cache: false,
-					success: function(data) {
-						if (data != null) {
-							window.location.href = "index.html";
-						}
-					},
-					error: function(e) {
-						alert("用户邮箱已注册");
-					}
-				});
-			} else {
-				alert("请把信息输入完整");
-			}
+//			if (username.length > 8) {
+//				alert("昵称太长了~~~");
+//				return 0;
+//			}
+//			if (email && username && phonenumber && psw) {
+//				data2 = {
+//					email: email,
+//					username: username,
+//					phonenumber: phonenumber,
+//					psw: psw
+//				};
+//				$.ajax({
+//					url: "#",
+//					dataType: "jsonp",
+//					data: data1,
+//					jsonp: "jsoncallback",
+//					cache: false,
+//					success: function(data) {
+//						if (data != null) {
+//							window.location.href = "index.html";
+//						}
+//					},
+//					error: function(e) {
+//						alert("用户邮箱已注册");
+//					}
+//				});
+//			} else {
+//				alert("请把信息输入完整");
+//			}
 		}
 	</script>
 	<!--验证注册JS结束-->

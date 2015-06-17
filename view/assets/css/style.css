@@ -4,7 +4,7 @@ body {
 	font-family: 'Ruda', sans-serif;
 	padding: 0px !important;
 	margin: 0px !important;
-	font-size: 13px;
+	font-size: 15px;
 }
 ul li {
 	list-style: none;
@@ -949,24 +949,17 @@ ul.top-menu > li > a:focus {
 	margin-top: 20px;
 }
 .row .ly {
-	margin-right: 10px;
 	text-align: left;
+	font-size: 13px;
+	margin: 20px;
+	line-height: 20px;
 }
-/* *************************************************************************************
-PANELS CONFIGURATIONS
-*************************************************************************************** */
-/*Panel Size*/
-
 .pn {
-	/*height: 250px;*/
-	
 	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
 }
 .pn:hover {
 	box-shadow: 2px 3px 2px rgba(0, 0, 0, 0.3);
 }
-/*Grey Panel*/
-
 .grey-panel {
 	text-align: center;
 	background: #dfdfe1;
@@ -995,7 +988,6 @@ PANELS CONFIGURATIONS
 	color: #FF6B6B;
 	font-size: 38px;
 }
-/* Dark Blue*/
 
 .darkblue-panel {
 	text-align: center;
@@ -1022,7 +1014,6 @@ PANELS CONFIGURATIONS
 	margin-right: 10px;
 	font-weight: 700;
 }
-/*Green Panel*/
 
 .green-panel {
 	text-align: center;
@@ -1054,16 +1045,12 @@ PANELS CONFIGURATIONS
 }
 .white-panel p {
 	margin-top: 5px;
-	/*font-weight: 700;*/
-	
 	margin-left: 15px;
 }
 .white-panel .white-header {
 	background: #f4f4f4;
 	padding: 3px;
 	margin-bottom: 15px;
-	/*color: #c6c6c6;*/
-	
 	color: rgb(125, 126, 128);
 }
 .white-panel .small {
@@ -1076,7 +1063,22 @@ PANELS CONFIGURATIONS
 	font-size: 14px;
 }
 /*STOCK CARD Panel*/
-
+.white-panel .white-header .receive_user{
+	display: inline;
+	margin-left: 30px;
+	float: left;
+}
+.white-panel .white-header .post{
+	width: 120px;
+	margin-right: 20px;
+}
+.write_ly{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	border: 0px;
+	padding: 20px;
+}
 .card {
 	background: white;
 	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
@@ -1086,10 +1088,7 @@ PANELS CONFIGURATIONS
 .stock .stock-chart {
 	background: #00c5de;
 }
-.stock .stock-chart #chart {
-	height: 10.7em;
-	background: url(http://i.imgbox.com/abmuNQx2) center bottom no-repeat;
-}
+
 .stock .current-price {
 	background: #1d2122;
 	padding: 10px;
@@ -2189,4 +2188,10 @@ label {
 }
 #idCalendar td.onSelect {
 	font-weight: bold;
+}
+#friend_block_search{
+	display: none;
+}
+#friend_block_add{
+	display: none;
 }

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 	<head>
@@ -20,15 +20,8 @@
 		<script src="assets/js/chart-master/Chart.js"></script>
 
 		<style type="text/css">
-			.pn {
-				height: 200px;
-			}
-			.btn {
-				width: 50%;
-			}
-			.mt {
-				margin-top: 15px;
-				text-align: left;
+			#save {
+				display: none;
 			}
 		</style>
 	</head>
@@ -51,6 +44,7 @@
 				<div class="top-menu">
 					<ul class="nav pull-right top-menu">
 						<li>
+
 							<a class="logout" href="#">
 								<span class="fa fa-power-off"></span>　退出</a>
 						</li>
@@ -67,7 +61,7 @@
 					<ul class="sidebar-menu" id="nav-accordion">
 						<!--头像昵称开始-->
 						<p class="centered">
-							<a href="Personal_Information.html">
+							<a href="profile.html">
 								<img src="img/ui-sam.jpg" class="img-circle" width="70">
 							</a>
 						</p>
@@ -75,12 +69,15 @@
 						<!--头像昵称结束-->
 						<!--个性签名开始-->
 						<div class="gxq">
+							<!--<hr />-->
+							<!--<span class="fa fa-quote-left"></span>-->
 							<p>还没好好的感受雪花绽放的温柔~</p>
+							<!--<hr />-->
 						</div>
 						<!--个性签名结束-->
 						<!--我的动态开始-->
 						<li class="mt">
-							<a class="active" href="Dynamic.html">
+							<a href="Dynamic.html">
 								<i class="fa fa-refresh"></i>
 								<span>我的动态</span>
 								<i class="fa fa-angle-right" style="float: right;"></i>
@@ -89,7 +86,7 @@
 						<!--我的动态结束-->
 						<!--个人资料开始-->
 						<li class="mxt">
-							<a href="Personal_Information.html">
+							<a class="active" href="Personal_Information.html">
 								<i class="fa fa-user"></i>
 								<span>个人资料</span>
 								<i class="fa fa-angle-right" style="float: right;"></i>
@@ -116,7 +113,7 @@
 						<!--我的同学录结束-->
 						<!--关于我们开始-->
 						<li class="sub-menu">
-							<a href="">
+							<a href="#">
 								<i class="fa fa-star"></i>
 								<span>关于我们</span>
 								<i class="fa fa-angle-right" style="float: right;"></i>
@@ -124,7 +121,6 @@
 						</li>
 						<!--关于我们结束-->
 					</ul>
-					<!-- sidebar menu end-->
 				</div>
 			</aside>
 			<!--左侧侧滑菜单结束-->
@@ -132,160 +128,159 @@
 			<!--正文开始-->
 			<section id="main-content">
 				<section class="wrapper">
-					<div class="row">
 
+					<div class="row">
 						<!--中间部分开始-->
 						<div class="col-lg-9 main-chart">
 							<div class="row mt">
-								<div class="col-md-12 mb">
-									<div class="white-panel pn" style="height: 100%;">
+								
+								<div class="col-md-12 col-sm-12 mb">
+									<div class="white-panel pn donut-chart">
 										<div class="white-header">
-											<h5>我的动态</h5>
-											<a href="Dynamic.html"><span class="fa fa-tablet">   卡片</span></a>&nbsp;&nbsp;&nbsp;
-											<a href="Dynamic_List.html"><span class="fa fa-list">   列表</span></a>
+											<h5><span>王振</span>的资料</h5>
 										</div>
+										<div class="row">
+											<div class="col-sm-12 col-xs-12 goleft tx">
+												<img src="img/ui-sam.jpg" />
+												<span onclick="choose_tx()" class="fa fa-pencil-square" id="cg_tx"></span>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-sm-6 col-xs-6 goleft">
+												<p id="cg_name">姓名
+													<input type="text" />
+													<label>孙淑敏</label>
+												</p>
+											</div>
+											<div class="col-sm-6 col-xs-6 goleft">
+												<p id="cg_email">邮箱
+													<input type="text" />
+													<label>1065004086@qq.com</label>
+												</p>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-sm-6 col-xs-6 goleft">
+												<p id="cg_sex">性别
+													<input type="text" />
+													<label>女</label>
+												</p>
+											</div>
+											<div class="col-sm-6 col-xs-6 goleft">
+												<p id="cg_phonenumber">手机
+													<input type="text" />
+													<label>18865513351</label>
+												</p>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-sm-6 col-xs-6 goleft">
+												<p id="cg_QQ"> Q&nbsp;Q
+													<input type="text" style="margin-left: 24px;" />
+													<label>1065004086</label>
+												</p>
+											</div>
+											<div class="col-sm-6 col-xs-6 goleft">
+												<p id="cg_weibo">微博
+													<input type="text" />
+													<label>小财迷耳朵3</label>
+												</p>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-sm-6 col-xs-6 goleft">
+												<p id="cg_weixin">微信
+													<input type="text" />
+													<label>sunshumin69</label>
+												</p>
+											</div>
+											<div class="col-sm-6 col-xs-6 goleft">
+												<p id="cg_school">学校
+													<input type="text" />
+													<label>烟台大学</label>
+												</p>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-sm-12 col-xs-12 goleft">
+												<p id="cg_intro">个性签名
+													<textarea>
 
-										<div class="row mt">
-
+													</textarea>
+													<label>快快乐乐的生活</label>
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						
+							
+							<div class="row mt">
+								
+								<div class="col-md-12 col-sm-12 mb">
+									<div class="white-panel pn donut-chart">
+										<div class="white-header">
+											<h5><span>王振</span>的留言</h5>
+										</div>
+										<div class="row">
 											<!--一条动态开始-->
 											<div class="col-md-12 mb">
 												<div class="row mt">
-													<a href="#">
-														<div class="col-md-12 mb">
-															<div class="col-md-6">
-																<span class="fa fa-star cd-date">  01-06 12:24</span>
-															</div>
-															<div class="col-md-6">
-																<span class="fa fa-star cd-date">  From:王振</span>
+													<div class="col-md-12 mb">
+														<div class="white-panel pn">
+															<div class="row">
+																<div class="col-md-12">		
+																	<div class="ly">
+																		<span class="cd-date">2015-01-06 12:24</span>
+																		<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上 好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习......
+																		</p>
+																	</div>
+																	<div class="ly">
+																		<span class="cd-date">2015-01-06 12:24</span>
+																		<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上 好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习......
+																		</p>
+																	</div>
+																	<div class="ly">
+																		<span class="cd-date">2015-01-06 12:24</span>
+																		<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上 好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习......
+																		</p>
+																	</div>
+																	<div class="ly">
+																		<span class="cd-date">2015-01-06 12:24</span>
+																		<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上 好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习......
+																		</p>
+																	</div>
+																	<div class="ly">
+																		<span class="cd-date">2015-01-06 12:24</span>
+																		<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上 好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习......
+																		</p>
+																	</div>
+																	<div class="ly">
+																		<span class="cd-date">2015-01-06 12:24</span>
+																		<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上 好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习......
+																		</p>
+																	</div>
+																	<div class="ly">
+																		<span class="cd-date">2015-01-06 12:24</span>
+																		<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上 好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习......
+																		</p>
+																	</div>
+																	<div class="ly">
+																		<span class="cd-date">2015-01-06 12:24</span>
+																		<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上 好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习......
+																		</p>
+																	</div>
+																	<button class="btn btn-block" style="width: 100%;">加载更多</button>
+																</div>
 															</div>
 														</div>
-														<div class="col-md-12 mb">
-															<div class="col-md-12">
-																<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天 天向上好好学习天天向上好好学习天天向上好好学习天天向上好 好学习天天向上好好学习......
-																	<a href="#">阅读全文</a>
-																</p>
-															</div>
-														</div>
-													</a>
+													</div>
 												</div>
 											</div>
 											<!--一条动态结束-->
-
 										</div>
-
-										<div class="row mt">
-
-											<!--一条动态开始-->
-											<div class="col-md-12 mb">
-												<div class="row mt">
-													<a href="#">
-														<div class="col-md-12 mb">
-															<div class="col-md-6">
-																<span class="fa fa-star cd-date">  01-06 12:24</span>
-															</div>
-															<div class="col-md-6">
-																<span class="fa fa-star cd-date">  From:王振</span>
-															</div>
-														</div>
-														<div class="col-md-12 mb">
-															<div class="col-md-12">
-																<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天 天向上好好学习天天向上好好学习天天向上好好学习天天向上好 好学习天天向上好好学习......
-																	<a href="#">阅读全文</a>
-																</p>
-															</div>
-														</div>
-													</a>
-												</div>
-											</div>
-											<!--一条动态结束-->
-
-										</div>
-
-										<div class="row mt">
-
-											<!--一条动态开始-->
-											<div class="col-md-12 mb">
-												<div class="row mt">
-													<a href="#">
-														<div class="col-md-12 mb">
-															<div class="col-md-6">
-																<span class="fa fa-star cd-date">  01-06 12:24</span>
-															</div>
-															<div class="col-md-6">
-																<span class="fa fa-star cd-date">  From:王振</span>
-															</div>
-														</div>
-														<div class="col-md-12 mb">
-															<div class="col-md-12">
-																<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天 天向上好好学习天天向上好好学习天天向上好好学习天天向上好 好学习天天向上好好学习......
-																	<a href="#">阅读全文</a>
-																</p>
-															</div>
-														</div>
-													</a>
-												</div>
-											</div>
-											<!--一条动态结束-->
-
-										</div>
-
-										<div class="row mt">
-
-											<!--一条动态开始-->
-											<div class="col-md-12 mb">
-												<div class="row mt">
-													<a href="#">
-														<div class="col-md-12 mb">
-															<div class="col-md-6">
-																<span class="fa fa-star cd-date">  01-06 12:24</span>
-															</div>
-															<div class="col-md-6">
-																<span class="fa fa-star cd-date">  From:王振</span>
-															</div>
-														</div>
-														<div class="col-md-12 mb">
-															<div class="col-md-12">
-																<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天 天向上好好学习天天向上好好学习天天向上好好学习天天向上好 好学习天天向上好好学习......
-																	<a href="#">阅读全文</a>
-																</p>
-															</div>
-														</div>
-													</a>
-												</div>
-											</div>
-											<!--一条动态结束-->
-
-										</div>
-
-										<div class="row mt">
-
-											<!--一条动态开始-->
-											<div class="col-md-12 mb">
-												<div class="row mt">
-													<a href="#">
-														<div class="col-md-12 mb">
-															<div class="col-md-6">
-																<span class="fa fa-star cd-date">  01-06 12:24</span>
-															</div>
-															<div class="col-md-6">
-																<span class="fa fa-star cd-date">  From:王振</span>
-															</div>
-														</div>
-														<div class="col-md-12 mb">
-															<div class="col-md-12">
-																<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天 天向上好好学习天天向上好好学习天天向上好好学习天天向上好 好学习天天向上好好学习......
-																	<a href="#">阅读全文</a>
-																</p>
-															</div>
-														</div>
-													</a>
-												</div>
-											</div>
-											<!--一条动态结束-->
-
-										</div>
-										<button class="btn btn-block" style="width: 100%;">加载更多</button>
-
+										
 									</div>
 								</div>
 							</div>
@@ -417,106 +412,61 @@
 							<!--心情小记结束-->
 
 							<!--日历开始-->
-							<div class="Calendar">
-								<div id="idCalendarPre">&lt;&lt;</div>
-								<div id="idCalendarNext">&gt;&gt;</div>
-								<span id="idCalendarYear">2008</span>年 <span id="idCalendarMonth">8</span>月
-								<table cellspacing="0">
-									<thead>
-										<tr>
-											<td>日</td>
-											<td>一</td>
-											<td>二</td>
-											<td>三</td>
-											<td>四</td>
-											<td>五</td>
-											<td>六</td>
-										</tr>
-									</thead>
-									<tbody id="idCalendar">
-									</tbody>
-								</table>
-							</div>
+
 							<!--日历结束-->
 
 						</div>
 						<!--右侧部分结束-->
-
 					</div>
+
 				</section>
 			</section>
 			<!--正文结束-->
 
 		</section>
 	</body>
-	<script>
-		var cale = new Calendar("idCalendar", {
-			SelectDay: new Date().setDate(10),
-			onSelectDay: function(o) {
-				o.className = "onSelect";
-			},
-			onToday: function(o) {
-				o.className = "onToday";
-			},
-			onFinish: function() {
-				$("idCalendarYear").innerHTML = this.Year;
-				$("idCalendarMonth").innerHTML =
-					this.Month;
-				var flag = [10, 15, 20];
-				for (var i = 0, len = flag.length; i < len; i++) {
-					this.Days[flag[i]].innerHTML = "<a href='javascript:void(0);' onclick=
-		
-		\"alert('日期是:" + this.Year + "/" + this.Month + "/" + flag[i] + "');return false;\">" + flag[i] + "</a>";
+	<script type="application/javascript">
+		var elementnames = ["cg_name",
+			"cg_email", "cg_sex", "cg_phonenumber",
+			"cg_QQ", "cg_weibo", "cg_weixin", "cg_school", "cg_intro"
+		];
+		var elements = ["", "", "", "", "", "", "", "", ""];
+		var i;
+		for (i = 0; i < elementnames.length; i++) {
+			elements[i] = document.getElementById(elementnames[i]);
+		}
+
+		function Change_Information() {
+			document.getElementById("cg_tx").style.display = "inline";
+			alert("ssaaa");
+			for (i = 0; i < elements.length; i++) {
+				elements[i].firstElementChild.style.display = "inline";
+				elements[i].lastElementChild.style.display = "none";
+				elements[i].firstElementChild.value = elements[i].lastElementChild.innerText;
+				elements[i].firstElementChild.style.border = "1px solid #cecece";
+				if (i == elements.length - 1) {
+					elements[i].firstElementChild.innerText = elements[i].lastElementChild.innerText;
 				}
 			}
-		});
-		$("idCalendarPre").onclick = function() {
-			cale.PreMonth();
+			document.getElementById("xg").style.display = "none";
+			document.getElementById("save").style.display = "inline";
 		}
-		$("idCalendarNext").onclick = function() {
-			cale.NextMonth();
+
+		function Save_Information() {
+			document.getElementById("xg").style.display = "inline";
+			document.getElementById("save").style.display = "none";
+			document.getElementById("cg_tx").style.display = "none";
+			for (i = 0; i < elements.length; i++) {
+				elements[i].firstElementChild.style.display = "none";
+				elements[i].lastElementChild.style.display = "inline";
+				elements[i].lastElementChild.innerText=elements[i].firstElementChild.value;
+				elements[i].firstElementChild.style.border = "1px solid #cecece";
+				if (i == elements.length - 1) {
+					elements[i].lastElementChild.innerText=elements[i].firstElementChild.innerText;
+				}
+			}
 		}
 	</script>
-	<!--<script type="application/javascript">
-		$(document).ready(function() {
-			$("#date-popover").popover({
-				html: true,
-				trigger: "manual"
-			});
-			$("#date-popover").hide();
-			$("#date-popover").click(function(e) {
-				$(this).hide();
-			});
-			$("#my-calendar").zabuto_calendar({
-				action: function() {
-					return myDateFunction(this.id, false);
-				},
-				action_nav: function() {
-					return myNavFunction(this.id);
-				},
-				ajax: {
-					url: "show_data.php?action=1",
-					modal: true
-				},
-				legend: [{
-					type: "text",
-					label: "Special event",
-					badge: "00"
-				}, {
-					type: "block",
-					label: "Regular event",
-				}]
-			});
-		});
-
-		function myNavFunction(id) {
-			$("#date-popover").hide();
-			var nav = $("#" + id).data("navigation");
-			var to = $("#" + id).data("to");
-			console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
-		}
-	</script>-->
-	<script src="js/Calender.js"></script>
 	<script src="assets/js/jquery.js"></script>
 	<script src="assets/js/jquery-1.8.3.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
