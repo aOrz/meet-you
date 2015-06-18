@@ -101,7 +101,7 @@ class User
 			`imgurl`='".$sUserImgUrl."',
 			`weibo`='".$sUserWeiBo."'
 			 WHERE 
-			`mail` = '".$sUserMail."' and `pwd` = ".$this->info['userPWD']."";
+			`mail` = '".$sUserMail."'";
 
 			if(mysqli_query($GLOBALS['DB'], $sql)){
 				return true;
