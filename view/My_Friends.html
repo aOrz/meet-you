@@ -165,7 +165,7 @@
 						<!--中间部分结束-->
 
 						<!--右侧部分开始-->
-																	<div class="col-lg-3 ds">
+						<div class="col-lg-3 ds">
 							<!--心情小记开始-->
 							<h3>心情小记</h3>
 							<!--输入日记-->
@@ -183,8 +183,7 @@
 							<!--输入日记结束-->
 							<!--日记1开始-->
 							<div id="daily">
-								
-								
+
 							</div>
 							<!--日记5结束-->
 							<!--心情小记结束-->
@@ -286,19 +285,17 @@
 		}
 	</script>
 	<script>
-	
 		$.ajax({
 			url: "../controller/user/user_controller.php",
 			dataType: "json",
 			data: {
 				userId: localStorage['userId'],
-				
 				controller: 'getAllFriend'
 			},
 			cache: false,
 			success: function(data) {
 				for (var i in data) {
-					localStorage.setItem(data[i].id,data[i].nickname);
+					localStorage.setItem(data[i].id, data[i].nickname);
 					if (i === 'num')
 						break;
 					var html = '<div class="col-md-6 mb">' +
@@ -310,10 +307,10 @@
 						'</p>' +
 						'<div class="row">' +
 						'<div class="col-md-6">' +
-						'<button class="btn btn-info">个人资料</button>' +
+						'<button class="btn btn-info" onclick="friendInfo(' + data[i].id + ')">个人资料</button>' +
 						'</div>' +
 						'<div class="col-md-6">' +
-						'<a onclick="writes('+data[i].id+')"><button class="btn btn-success">写给他</button></a>' +
+						'<a onclick="writes(' + data[i].id + ')"><button class="btn btn-success">写给他</button></a>' +
 						'</div>' +
 						'</div>' +
 						'</div>' +
@@ -327,34 +324,33 @@
 		});
 
 		function search(num) {
-			if(num ===1){
-			 	var ss = $('#name').val();
-			 	var controller = 'getAllFriend' ;
-			}else{
+			if (num === 1) {
+				var ss = $('#name').val();
+				var controller = 'getAllFriend';
+			} else {
 				var ss = $('#names').val();
-				var controller = 'saerchFriend' ;
+				var controller = 'saerchFriend';
 			}
 			$.ajax({
 				url: "../controller/user/user_controller.php",
 				dataType: "json",
 				data: {
 					userId: localStorage['userId'],
-					nickName:ss,
+					nickName: ss,
 					controller: controller
 				},
 				cache: false,
 				success: function(data) {
-					if(num === 2)
-					data = eval('(' + data + ')');
+					if (num === 2)
+						data = eval('(' + data + ')');
 					$('#list').empty();
 					for (var i in data) {
-						localStorage.setItem(data[i].id,data[i].nickname);
-						
-						if (i === 'num' || i>10)
+						localStorage.setItem(data[i].id, data[i].nickname);
+						if (i === 'num' || i > 10)
 							break;
-							if(num === 1 && data[i].nickname !=ss){
-								continue;
-							}
+						if (num === 1 && data[i].nickname != ss) {
+							continue;
+						}
 						var html = '<div class="col-md-6 mb">' +
 							'<div class="white-panel pn">' +
 							'<p>' +
@@ -363,15 +359,15 @@
 							'<p><b>' + data[i].nickname + '</b>' +
 							'</p>' +
 							'<div class="row">' +
-							'<div class="col-md-6">' ;
-							if(num === 1){
-							html += '<button class="btn btn-info">个人资料</button>' ;
-							}else{
-								html += '<button class="btn btn-info" onclick="add('+data[i].id+')">加好友</button>' ;
-							}
-							html += '</div>' +
+							'<div class="col-md-6">';
+						if (num === 1) {
+							html += '<button class="btn btn-info" onclick="friendInfo(' + data[i].id + ')">个人资料</button>';
+						} else {
+							html += '<button class="btn btn-info" onclick="add(' + data[i].id + ')">加好友</button>';
+						}
+						html += '</div>' +
 							'<div class="col-md-6">' +
-							'<a onclick="writes('+data[i].id+')"><button class="btn btn-success">写给他</button></a>' +
+							'<a onclick="writes(' + data[i].id + ')"><button class="btn btn-success">写给他</button></a>' +
 							'</div>' +
 							'</div>' +
 							'</div>' +
@@ -384,36 +380,39 @@
 				}
 			});
 		}
-		function writes(writeId){
-//			alert(writeId);
-			localStorage.setItem('writeId',writeId);
-			window.location.href="To_My_Friends.html";
+
+		function writes(writeId) {
+			//			alert(writeId);
+			localStorage.setItem('writeId', writeId);
+			window.location.href = "To_My_Friends.html";
 		}
-		function add(friendId){
-				addInfo = {};
-					addInfo.userId = localStorage['userId'];
-					addInfo.friendId = friendId;
-					addInfo.controller = 'add';
-					$.ajax('../controller/user/user_controller.php', {
-						data: addInfo,
-						dataType: 'json', //服务器返回json格式数据
-						type: 'get', //HTTP请求类型
-						timeout: 10000, //超时时间设置为10秒；
-						success: function(data) {
-							if (!data) {
-								alert('请求失败');
-							}
-							alert('添加成功');
-						},
-						error: function(xhr, type, errorThrown) {
-							//异常处理；
-							alert('服务器错误');
-						}
-					});
+
+		function add(friendId) {
+			addInfo = {};
+			addInfo.userId = localStorage['userId'];
+			addInfo.friendId = friendId;
+			addInfo.controller = 'add';
+			$.ajax('../controller/user/user_controller.php', {
+				data: addInfo,
+				dataType: 'json', //服务器返回json格式数据
+				type: 'get', //HTTP请求类型
+				timeout: 10000, //超时时间设置为10秒；
+				success: function(data) {
+					if (!data) {
+						alert('请求失败');
+					}
+					alert('添加成功');
+				},
+				error: function(xhr, type, errorThrown) {
+					//异常处理；
+					alert('服务器错误');
+				}
+			});
 		}
-		function friendInfo(friend_info){
-			localStorage.setItem('friend_info',friend_info);
-			window.location.href="friend_info.html"
+
+		function friendInfo(friend_info) {
+			localStorage.setItem('friend_info', friend_info);
+			window.location.href = "friend_info.html"
 		}
 	</script>
 
