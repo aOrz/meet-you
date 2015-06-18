@@ -214,74 +214,6 @@
 								</div>
 							</div>
 
-							<div class="row mt">
-
-								<div class="col-md-12 col-sm-12 mb">
-									<div class="white-panel pn donut-chart">
-										<div class="white-header">
-											<h5><span id="sname">王振</span>的留言</h5>
-										</div>
-										<div class="row" id="message">
-											<!--一条动态开始-->
-											<div class="col-md-12 mb">
-												<div class="row mt">
-													<div class="col-md-12 mb">
-														<div class="white-panel pn">
-															<div class="row">
-																<div class="col-md-12">
-																	<div class="ly">
-																		<span class="cd-date">2015-01-06 12:24</span>
-																		<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上 好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习......
-																		</p>
-																	</div>
-																	<div class="ly">
-																		<span class="cd-date">2015-01-06 12:24</span>
-																		<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上 好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习......
-																		</p>
-																	</div>
-																	<div class="ly">
-																		<span class="cd-date">2015-01-06 12:24</span>
-																		<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上 好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习......
-																		</p>
-																	</div>
-																	<div class="ly">
-																		<span class="cd-date">2015-01-06 12:24</span>
-																		<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上 好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习......
-																		</p>
-																	</div>
-																	<div class="ly">
-																		<span class="cd-date">2015-01-06 12:24</span>
-																		<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上 好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习......
-																		</p>
-																	</div>
-																	<div class="ly">
-																		<span class="cd-date">2015-01-06 12:24</span>
-																		<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上 好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习......
-																		</p>
-																	</div>
-																	<div class="ly">
-																		<span class="cd-date">2015-01-06 12:24</span>
-																		<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上 好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习......
-																		</p>
-																	</div>
-																	<div class="ly">
-																		<span class="cd-date">2015-01-06 12:24</span>
-																		<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上 好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习......
-																		</p>
-																	</div>
-																	<button class="btn btn-block" style="width: 100%;">加载更多</button>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-											<!--一条动态结束-->
-										</div>
-
-									</div>
-								</div>
-							</div>
 						</div>
 						<!--中间部分结束-->
 
@@ -359,7 +291,7 @@
 				url: "../controller/user/user_controller.php",
 				dataType: "json",
 				data: {
-					userId: localStorage['sendId'],
+					userId: localStorage['friendInfo'],
 					controller: 'getInfo'
 				},
 				cache: false,
@@ -374,22 +306,6 @@
 					elements[7].innerHTML = data.info.userSchool
 					elements[8].innerHTML = data.info.userIntroduction
 					document.getElementById('sname').innerHTML = data.info.userNickName;
-				},
-				error: function(e) {
-					alert(e);
-				}
-			});
-			$.ajax({
-				url: "../controller/message/message_controller.php",
-				dataType: "json",
-				data: {
-					messageId: localStorage['wzid'],
-					controller: 'GetMessageById'
-				},
-				cache: false,
-				success: function(data) {
-					//					alert(data.messages)
-					$('#message').empty().append(data.messages);
 				},
 				error: function(e) {
 					alert(e);
