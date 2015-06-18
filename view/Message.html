@@ -65,13 +65,13 @@
 								<img src="img/ui-sam.jpg" class="img-circle" width="70">
 							</a>
 						</p>
-						<h5 class="centered">耳朵3</h5>
+						<h5 class="centered" id="side_name"></h5>
 						<!--头像昵称结束-->
 						<!--个性签名开始-->
 						<div class="gxq">
 							<!--<hr />-->
 							<!--<span class="fa fa-quote-left"></span>-->
-							<p>还没好好的感受雪花绽放的温柔~</p>
+							<p id="side_intro">还没好好的感受雪花绽放的温柔~</p>
 							<!--<hr />-->
 						</div>
 						<!--个性签名结束-->
@@ -86,7 +86,7 @@
 						<!--我的动态结束-->
 						<!--个人资料开始-->
 						<li class="mxt">
-							<a  href="Personal_Information.html">
+							<a href="Personal_Information.html">
 								<i class="fa fa-user"></i>
 								<span>个人资料</span>
 								<i class="fa fa-angle-right" style="float: right;"></i>
@@ -133,7 +133,7 @@
 						<!--中间部分开始-->
 						<div class="col-lg-9 main-chart">
 							<div class="row mt">
-								
+
 								<div class="col-md-12 col-sm-12 mb">
 									<div class="white-panel pn donut-chart">
 										<div class="white-header">
@@ -147,13 +147,13 @@
 										</div>
 										<div class="row">
 											<div class="col-sm-6 col-xs-6 goleft">
-												<p >姓名
+												<p>姓名
 													<input type="text" />
 													<label id="cg_name">孙淑敏</label>
 												</p>
 											</div>
 											<div class="col-sm-6 col-xs-6 goleft">
-												<p >邮箱
+												<p>邮箱
 													<input type="text" />
 													<label id="cg_email">1065004086@qq.com</label>
 												</p>
@@ -161,13 +161,13 @@
 										</div>
 										<div class="row">
 											<div class="col-sm-6 col-xs-6 goleft">
-												<p >性别
+												<p>性别
 													<input type="text" />
 													<label id="cg_sex">女</label>
 												</p>
 											</div>
 											<div class="col-sm-6 col-xs-6 goleft">
-												<p >手机
+												<p>手机
 													<input type="text" />
 													<label id="cg_phonenumber">18865513351</label>
 												</p>
@@ -175,27 +175,27 @@
 										</div>
 										<div class="row">
 											<div class="col-sm-6 col-xs-6 goleft">
-												<p > Q&nbsp;Q
+												<p> Q&nbsp;Q
 													<input type="text" style="margin-left: 24px;" />
 													<label id="cg_QQ">1065004086</label>
 												</p>
 											</div>
 											<div class="col-sm-6 col-xs-6 goleft">
-												<p >微博
+												<p>微博
 													<input type="text" />
-													<label id="cg_weibo">小财迷耳朵3</label>
+													<label id="cg_weibo">小财迷</label>
 												</p>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-sm-6 col-xs-6 goleft">
-												<p >微信
+												<p>微信
 													<input type="text" />
 													<label id="cg_weixin">sunshumin69</label>
 												</p>
 											</div>
 											<div class="col-sm-6 col-xs-6 goleft">
-												<p >学校
+												<p>学校
 													<input type="text" />
 													<label id="cg_school">烟台大学</label>
 												</p>
@@ -203,8 +203,8 @@
 										</div>
 										<div class="row">
 											<div class="col-sm-12 col-xs-12 goleft">
-												<p >个性签名
-													<textarea id="cg_intro"> 
+												<p>个性签名
+													<textarea id="cg_intro">
 
 													</textarea>
 												</p>
@@ -213,10 +213,9 @@
 									</div>
 								</div>
 							</div>
-						
-							
+
 							<div class="row mt">
-								
+
 								<div class="col-md-12 col-sm-12 mb">
 									<div class="white-panel pn donut-chart">
 										<div class="white-header">
@@ -229,7 +228,7 @@
 													<div class="col-md-12 mb">
 														<div class="white-panel pn">
 															<div class="row">
-																<div class="col-md-12" >		
+																<div class="col-md-12">
 																	<div class="ly">
 																		<span class="cd-date">2015-01-06 12:24</span>
 																		<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上 好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习......
@@ -279,7 +278,7 @@
 											</div>
 											<!--一条动态结束-->
 										</div>
-										
+
 									</div>
 								</div>
 							</div>
@@ -424,7 +423,7 @@
 
 		</section>
 	</body>
-	
+
 	<script src="assets/js/jquery.js"></script>
 	<script src="assets/js/jquery-1.8.3.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
@@ -442,17 +441,19 @@
 	<!--script for this page-->
 	<script src="assets/js/sparkline-chart.js"></script>
 	<script src="assets/js/zabuto_calendar.js"></script>
-<script type="application/javascript">
+	<script src="js/init.js"></script>
+	<script type="application/javascript">
 		var elementnames = ["cg_name",
 			"cg_email", "cg_sex", "cg_phonenumber",
 			"cg_QQ", "cg_weibo", "cg_weixin", "cg_school", "cg_intro"
 		];
-		 elements = ["", "", "", "", "", "", "", "", ""];
+		elements = ["", "", "", "", "", "", "", "", ""];
 		var i;
 		for (i = 0; i < elementnames.length; i++) {
 			elements[i] = document.getElementById(elementnames[i]);
 		}
-		function info(){
+
+		function info() {
 			$.ajax({
 				url: "../controller/user/user_controller.php",
 				dataType: "json",
@@ -463,14 +464,14 @@
 				cache: false,
 				success: function(data) {
 					elements[0].innerHTML = data.info.userNickName;
-					elements[1].innerHTML  = data.info.userMail
-					elements[2].innerHTML  = data.info.userSex
-					elements[3].innerHTML  = data.info.userTel
-					elements[4].innerHTML  = data.info.userQq
-					elements[5].innerHTML  = data.info.userWeiBo
-					elements[6].innerHTML  = data.info.userWeiXin
-					elements[7].innerHTML  = data.info.userSchool
-					elements[8].innerHTML  = data.info.userIntroduction
+					elements[1].innerHTML = data.info.userMail
+					elements[2].innerHTML = data.info.userSex
+					elements[3].innerHTML = data.info.userTel
+					elements[4].innerHTML = data.info.userQq
+					elements[5].innerHTML = data.info.userWeiBo
+					elements[6].innerHTML = data.info.userWeiXin
+					elements[7].innerHTML = data.info.userSchool
+					elements[8].innerHTML = data.info.userIntroduction
 					document.getElementById('sname').innerHTML = data.info.userNickName;
 				},
 				error: function(e) {
@@ -486,7 +487,7 @@
 				},
 				cache: false,
 				success: function(data) {
-//					alert(data.messages)
+					//					alert(data.messages)
 					$('#message').empty().append(data.messages);
 				},
 				error: function(e) {
@@ -495,6 +496,7 @@
 			});
 		}
 		info();
+
 		function Change_Information() {
 			document.getElementById("cg_tx").style.display = "inline";
 			alert("ssaaa");
@@ -518,12 +520,13 @@
 			for (i = 0; i < elements.length; i++) {
 				elements[i].firstElementChild.style.display = "none";
 				elements[i].lastElementChild.style.display = "inline";
-				elements[i].lastElementChild.innerText=elements[i].firstElementChild.value;
+				elements[i].lastElementChild.innerText = elements[i].firstElementChild.value;
 				elements[i].firstElementChild.style.border = "1px solid #cecece";
 				if (i == elements.length - 1) {
-					elements[i].lastElementChild.innerText=elements[i].firstElementChild.innerText;
+					elements[i].lastElementChild.innerText = elements[i].firstElementChild.innerText;
 				}
 			}
 		}
 	</script>
+
 </html>
