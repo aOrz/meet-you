@@ -26,7 +26,7 @@
 		</style>
 	</head>
 
-	<body>
+	<body onload="Personal_information_ready()">
 		<section id="container">
 			<!--头部开始-->
 			<header class="header black-bg">
@@ -44,8 +44,7 @@
 				<div class="top-menu">
 					<ul class="nav pull-right top-menu">
 						<li>
-
-							<a class="logout" href="#">
+							<a class="logout" href="Login.html">
 								<span class="fa fa-power-off"></span>　退出</a>
 						</li>
 					</ul>
@@ -61,18 +60,15 @@
 					<ul class="sidebar-menu" id="nav-accordion">
 						<!--头像昵称开始-->
 						<p class="centered">
-							<a href="profile.html">
+							<a href="Personal_Information.html">
 								<img src="img/ui-sam.jpg" class="img-circle" width="70">
 							</a>
 						</p>
-						<h5 class="centered" id="side_name"></h5>
+						<h5 class="centered" id="side_name">耳朵3</h5>
 						<!--头像昵称结束-->
 						<!--个性签名开始-->
 						<div class="gxq">
-							<!--<hr />-->
-							<!--<span class="fa fa-quote-left"></span>-->
 							<p id="side_intro">还没好好的感受雪花绽放的温柔~</p>
-							<!--<hr />-->
 						</div>
 						<!--个性签名结束-->
 						<!--我的动态开始-->
@@ -185,7 +181,7 @@
 											<div class="col-sm-6 col-xs-6 goleft">
 												<p id="cg_weibo">微博
 													<input type="text" />
-													<label>小财迷</label>
+													<label>小财迷耳朵3</label>
 												</p>
 											</div>
 										</div>
@@ -238,9 +234,9 @@
 							<!--输入日记结束-->
 							<!--日记1开始-->
 							<div id="daily">
-								
-								
+
 							</div>
+							<button class="btn btn-block" style="width: 100%;">没有更多了</button>
 							<!--日记5结束-->
 							<!--心情小记结束-->
 
@@ -258,7 +254,6 @@
 
 		</section>
 	</body>
-	
 	<script src="assets/js/jquery.js"></script>
 	<script src="assets/js/jquery-1.8.3.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
@@ -274,76 +269,9 @@
 	<script type="text/javascript" src="assets/js/gritter-conf.js"></script>
 
 	<!--script for this page-->
-
+	<script src="assets/js/sparkline-chart.js"></script>
+	<script src="assets/js/zabuto_calendar.js"></script>
+	<script src="js/myJS.js"></script>
 	<script src="js/init.js"></script>
-<script type="application/javascript">
-		var elementnames = ["cg_name",
-			"cg_email", "cg_sex", "cg_phonenumber",
-			"cg_QQ", "cg_weibo", "cg_weixin", "cg_school", "cg_intro"
-		];
-		var elements = ["", "", "", "", "", "", "", "", ""];
-		var i;
-		for (i = 0; i < elementnames.length; i++) {
-			elements[i] = document.getElementById(elementnames[i]);
-		}
-		
-				function infos() {
-					var info = localStorage.getItem('userInfo');
-		info = eval('(' + info + ')');
-			$.ajax({
-				url: "../controller/user/user_controller.php",
-				dataType: "json",
-				data: {
-					userId: localStorage['sendId'],
-					controller: 'getInfo'
-				},
-				cache: false,
-				success: function(data) {
-					elements[0].innerHTML = data.info.userNickName;
-					elements[1].innerHTML = data.info.userMail
-					elements[2].innerHTML = data.info.userSex
-					elements[3].innerHTML = data.info.userTel
-					elements[4].innerHTML = data.info.userQq
-					elements[5].innerHTML = data.info.userWeiBo
-					elements[6].innerHTML = data.info.userWeiXin
-					elements[7].innerHTML = data.info.userSchool
-					elements[8].innerHTML = data.info.userIntroduction
-				},
-				error: function(e) {
-					alert(e);
-				}
-			});
-		}
-		//infos();
-		function Change_Information() {
-			document.getElementById("cg_tx").style.display = "inline";
-			alert("ssaaa");
-			for (i = 0; i < elements.length; i++) {
-				elements[i].firstElementChild.style.display = "inline";
-				elements[i].lastElementChild.style.display = "none";
-				elements[i].firstElementChild.value = elements[i].lastElementChild.innerText;
-				elements[i].firstElementChild.style.border = "1px solid #cecece";
-				if (i == elements.length - 1) {
-					elements[i].firstElementChild.innerText = elements[i].lastElementChild.innerText;
-				}
-			}
-			document.getElementById("xg").style.display = "none";
-			document.getElementById("save").style.display = "inline";
-		}
 
-		function Save_Information() {
-			document.getElementById("xg").style.display = "inline";
-			document.getElementById("save").style.display = "none";
-			document.getElementById("cg_tx").style.display = "none";
-			for (i = 0; i < elements.length; i++) {
-				elements[i].firstElementChild.style.display = "none";
-				elements[i].lastElementChild.style.display = "inline";
-				elements[i].lastElementChild.innerText = elements[i].firstElementChild.value;
-				elements[i].firstElementChild.style.border = "1px solid #cecece";
-				if (i == elements.length - 1) {
-					elements[i].lastElementChild.innerText = elements[i].firstElementChild.innerText;
-				}
-			}
-		}
-	</script>
 </html>

@@ -46,7 +46,7 @@
 					<ul class="nav pull-right top-menu">
 						<li>
 
-							<a class="logout" href="#">
+							<a class="logout" onclick="logout()">
 								<span class="fa fa-power-off"></span>　退出</a>
 						</li>
 					</ul>
@@ -66,7 +66,7 @@
 								<img src="img/ui-sam.jpg" class="img-circle" width="70">
 							</a>
 						</p>
-						<h5 class="centered" id="side_name"></h5>
+						<h5 class="centered" id="side_name">耳朵3</h5>
 						<!--头像昵称结束-->
 						<!--个性签名开始-->
 						<div class="gxq">
@@ -133,208 +133,20 @@
 							<div class="row mt">
 								<div class="col-md-12 mb">
 									<div class="white-panel pn" style="height: 100%;">
-										
+
 										<!--我收到的同学录标题开始-->
 										<div class="white-header">
-											<h5>我收到的同学录</h5>
+											<h5>我发出的同学录</h5>
 											<a href="Alumni_Page.html"><span class="fa fa-clock-o">  时间轴</span></a>&nbsp;&nbsp;&nbsp;
 											<a href="Alumni_Page_List.html"><span class="fa fa-list">   列表</span></a>
 										</div>
 										<!--我收到的同学录标题结束-->
-										
+
 										<!--我收到的同学录开始-->
-										<div class="row mt">
-											<div class="col-md-12 mb">
-												<section id="cd-timeline" class="cd-container">
-													
-													<!--一条同学录开始-->
-													<div class="cd-timeline-block">
-														<div class="cd-timeline-img cd-picture">
-															<img src="img/cd-icon-picture.svg" alt="Picture">
-														</div>
+										<div class="row mt" id="list">
 
-														<div class="cd-timeline-content">
-															<div class="row mt">
-																<div class="col-md-12 mb">
-																	<div class="white-panel pn">
-																		<div class="row">
-																			<div class="col-md-4">
-																				<div class="tx_left">
-																					<p>
-																						<img src="assets/img/ui-zac.jpg" class="img-circle" width="100">
-																					</p>
-																					<p><b>王振</b>
-																					</p>
-																				</div>
-																			</div>
-																			<div class="col-md-8">
-																				<div class="ly">
-																					<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上 好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习......
-																						<a href="#">阅读全文</a>
-																					</p>
-																				</div>
-																				
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
-															<span class="cd-date">2015-01-06</span>
-														</div>
-													</div>
-													<!--一条同学录结束-->
-													
-													<!--一条同学录开始-->
-													<div class="cd-timeline-block">
-														<div class="cd-timeline-img cd-movie">
-															<img src="img/cd-icon-movie.svg" alt="Movie">
-														</div>
-
-														<div class="cd-timeline-content">
-															<div class="row mt">
-																<div class="col-md-12 mb">
-																	<div class="white-panel pn">
-																		<div class="row">
-																			<div class="col-md-4">
-																				<div class="tx_left">
-																					<p>
-																						<img src="assets/img/ui-zac.jpg" class="img-circle" width="100">
-																					</p>
-																					<p><b>王振</b>
-																					</p>
-																				</div>
-																			</div>
-																			<div class="col-md-8">
-																				<div class="ly">
-																					<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上 好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习......
-																						<a href="#">阅读全文</a>
-																					</p>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
-															<span class="cd-date">2014-12-25</span>
-														</div>
-													</div>
-													<!--一条同学录结束-->
-													
-													<!--一条同学录开始-->
-													<div class="cd-timeline-block">
-														<div class="cd-timeline-img cd-picture">
-															<img src="img/cd-icon-picture.svg" alt="Picture">
-														</div>
-
-														<div class="cd-timeline-content">
-															<div class="row mt">
-																<div class="col-md-12 mb">
-																	<div class="white-panel pn">
-																		<div class="row">
-																			<div class="col-md-4">
-																				<div class="tx_left">
-																					<p>
-																						<img src="assets/img/ui-zac.jpg" class="img-circle" width="100">
-																					</p>
-																					<p><b>王振</b>
-																					</p>
-																				</div>
-																			</div>
-																			<div class="col-md-8">
-																				<div class="ly">
-																					<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上 好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习......
-																						<a href="#">阅读全文</a>
-																					</p>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
-															<span class="cd-date">2014-12-20</span>
-														</div>
-													</div>
-													<!--一条同学录结束-->
-													
-													<!--一条同学录开始-->
-													<div class="cd-timeline-block">
-														<div class="cd-timeline-img cd-movie">
-															<img src="img/cd-icon-movie.svg" alt="Movie">
-														</div>
-
-														<div class="cd-timeline-content">
-															<div class="row mt">
-																<div class="col-md-12 mb">
-																	<div class="white-panel pn">
-																		<div class="row">
-																			<div class="col-md-4">
-																				<div class="tx_left">
-																					<p>
-																						<img src="assets/img/ui-zac.jpg" class="img-circle" width="100">
-																					</p>
-																					<p><b>王振</b>
-																					</p>
-																				</div>
-																			</div>
-																			<div class="col-md-8">
-																				<div class="ly">
-																					<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上 好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习......
-																						<a href="#">阅读全文</a>
-																					</p>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
-															<span class="cd-date">2014-12-14</span>
-														</div>
-													</div>
-													<!--一条同学录结束-->
-													
-													<!--一条同学录开始-->
-													<div class="cd-timeline-block">
-														<div class="cd-timeline-img cd-movie">
-															<img src="img/cd-icon-location.svg" alt="Location">
-														</div>
-
-														<div class="cd-timeline-content">
-															<div class="row mt">
-																<div class="col-md-12 mb">
-																	<div class="white-panel pn">
-																		<div class="row">
-																			<div class="col-md-4">
-																				<div class="tx_left">
-																					<p>
-																						<img src="assets/img/ui-zac.jpg" class="img-circle" width="100">
-																					</p>
-																					<p><b>王振</b>
-																					</p>
-																				</div>
-																			</div>
-																			<div class="col-md-8">
-																				<div class="ly">
-																					<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上 好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习......
-																						<a href="#">阅读全文</a>
-																					</p>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
-															<span class="cd-date">2014-12-05</span>
-														</div>
-													</div>
-													<!--一条同学录结束-->
-													
-												</section>
-												
-												<button class="btn btn-block" style="width: 100%;">加载更多</button>
-											</div>
 										</div>
-										<!--我收到的同学录结束-->
-									
+
 									</div>
 								</div>
 							</div>
@@ -348,121 +160,21 @@
 							<!--输入日记-->
 							<div class="inputdiary">
 								<form method="post" action="#">
-									<p>2015/06/05</p>
-									<textarea rows="4" wrap="soft" placeholder="今天发生了什么呢？写点吧..."></textarea>
+									<p></p>
+									<textarea rows="4" wrap="soft" id="dailyCon" placeholder="今天发生了什么呢？写点吧..."></textarea>
 									<div style="margin-top: -10px;">
 										<span class="fa fa-upload" style="position: relative;top: 25px;left: 100px;"></span>
-										<input type="submit" value="发布" />
+										<input type="button" onclick="dailySub()" value="发布" />
 									</div>
 
 								</form>
 							</div>
 							<!--输入日记结束-->
 							<!--日记1开始-->
-							<div class="desc">
-								<div class="thumb">
-									<!--<span class="badge bg-theme"><i class="fa fa-heart-o"></i></span>-->
-									<img src="img/flower.png" />
-								</div>
-								<div class="details">
-									<p>
-										<muted>2015年5月27日</muted>
-										<br/> 今天真是太高兴了，要到了男神的手机号！！
-										<br/>
-									</p>
-								</div>
+							<div id="daily">
+
 							</div>
-							<!--日记1结束-->
-							<!--日记2开始-->
-							<div class="desc">
-								<div class="thumb">
-									<!--<span class="badge bg-theme"><i class="fa fa-heart-o"></i></span>-->
-									<img src="img/flower.png" />
-								</div>
-								<div class="details">
-									<p>
-										<muted>2015年5月27日</muted>
-										<br/> 今天真是太高兴了，要到了男神的手机号！！
-										<br/>
-									</p>
-								</div>
-							</div>
-							<!--日记2结束-->
-							<!--日记3开始-->
-							<div class="desc">
-								<div class="thumb">
-									<!--<span class="badge bg-theme"><i class="fa fa-heart-o"></i></span>-->
-									<img src="img/flower.png" />
-								</div>
-								<div class="details">
-									<p>
-										<muted>2015年5月27日</muted>
-										<br/> 今天真是太高兴了，要到了男神的手机号！！
-										<br/>
-									</p>
-								</div>
-							</div>
-							<!--日记3结束-->
-							<!--日记4开始-->
-							<div class="desc">
-								<div class="thumb">
-									<!--<span class="badge bg-theme"><i class="fa fa-heart-o"></i></span>-->
-									<img src="img/flower.png" />
-								</div>
-								<div class="details">
-									<p>
-										<muted>2015年5月27日</muted>
-										<br/> 今天真是太高兴了，要到了男神的手机号！！
-										<br/>
-									</p>
-								</div>
-							</div>
-							<!--日记4结束-->
-							<!--日记5开始-->
-							<div class="desc">
-								<div class="thumb">
-									<!--<span class="badge bg-theme"><i class="fa fa-heart-o"></i></span>-->
-									<img src="img/flower.png" />
-								</div>
-								<div class="details">
-									<p>
-										<muted>2015年5月27日</muted>
-										<br/> 今天真是太高兴了，要到了男神的手机号！！
-										<br/>
-									</p>
-								</div>
-							</div>
-							<!--日记5结束-->
-							<!--日记5开始-->
-							<div class="desc">
-								<div class="thumb">
-									<!--<span class="badge bg-theme"><i class="fa fa-heart-o"></i></span>-->
-									<img src="img/flower.png" />
-								</div>
-								<div class="details">
-									<p>
-										<muted>2015年5月27日</muted>
-										<br/> 今天真是太高兴了，要到了男神的手机号！！
-										<br/>
-									</p>
-								</div>
-							</div>
-							<!--日记5结束-->
-							<!--日记5开始-->
-							<div class="desc">
-								<div class="thumb">
-									<!--<span class="badge bg-theme"><i class="fa fa-heart-o"></i></span>-->
-									<img src="img/flower.png" />
-								</div>
-								<div class="details">
-									<p>
-										<muted>2015年5月27日</muted>
-										<br/> 今天真是太高兴了，要到了男神的手机号！！
-										<br/>
-									</p>
-								</div>
-							</div>
-							<button class="btn btn-block" style="width: 100%;">加载更多</button>
+							<button class="btn btn-block" style="width: 100%;">没有更多了</button>
 							<!--日记5结束-->
 							<!--心情小记结束-->
 
@@ -498,7 +210,8 @@
 
 		</section>
 	</body>
-	<script>
+
+	<script type="text/javascript">
 		var cale = new Calendar("idCalendar", {
 			SelectDay: new Date().setDate(10),
 			onSelectDay: function(o) {
@@ -526,6 +239,7 @@
 			cale.NextMonth();
 		}
 	</script>
+
 	<script src="js/Calender.js"></script>
 	<script src="assets/js/jquery.js"></script>
 	<script src="assets/js/jquery-1.8.3.min.js"></script>
@@ -544,6 +258,133 @@
 	<!--script for this page-->
 	<script src="assets/js/sparkline-chart.js"></script>
 	<script src="assets/js/zabuto_calendar.js"></script>
+	<script src="js/myJS.js"></script>
 	<script src="js/init.js"></script>
+	<script type="text/javascript">
+		$.ajax({
+			url: "../controller/message/message_controller.php",
+			dataType: "json",
+			data: {
+				sendId: localStorage['userId'],
+				page: 1,
+				controller: 'GetMessageListBySendId'
+			},
+			cache: false,
+			success: function(data) {
+				for (var i in data) {
+					sh = i;
+					$.ajax({
+						url: "../controller/user/user_controller.php",
+						dataType: "json",
+						data: {
+							userId: data[sh].send_id,
+							controller: 'getInfo'
+						},
+						async: false,
+						cache: false,
+						success: function(datas) {
+							if(i%2 === 0)
+							 html1 = '<div class="col-md-12 mb">' +
+								'<section id="cd-timeline" class="cd-container">' +
+								//一条同学录开始
+								'<div class="cd-timeline-block">' +
+								//
+								'<div class="cd-timeline-img cd-picture">' +
+								'<img src="img/cd-icon-picture.svg" alt="Picture">' +
+								'</div>' +
+								//
+								'<div class="cd-timeline-content">' +
+								'<div class="row mt">' +
+								'<div class="col-md-12 mb">' +
+								'<div class="white-panel pn">' +
+								'<div class="row">' +
+								'<div class="col-md-4">' +
+								'<div class="tx_left">' +
+								'<p>' +
+								'<img src="assets/img/ui-zac.jpg" class="img-circle" width="100">' +
+								'</p>' +
+								'<p><b>' + datas.info.userNickName + '</b>' +
+								'</p>' +
+								'</div>' +
+								'</div>' +
+								//
+								'<div class="col-md-8">' +
+								'<div class="ly">' +
+								'<p>' + data[sh].breviary + '......' +
+								'<a onclick="other(' + data[sh].id + ',' + data[sh].send_id + ')">阅读全文</a>' +
+								'</p>' +
+								'</div>' +
+								'</div>' +
+								'</div>' +
+								'</div>' +
+								'</div>' +
+								'</div>' +
+								'<span class="cd-date">' + data[sh].data +
+								'</span>' +
+								'</div>' +
+								'</div>' ;
+								///////
+								//一条同学录开始
+								if(i%2!=0)
+								html1 +='<div class="cd-timeline-block">' +
+								//
+								'<div class="cd-timeline-img cd-movie">' +
+								'<img src="img/cd-icon-movie.svg" alt="Movie">' +
+								'</div>' +
+								//
+								'<div class="cd-timeline-content">' +
+								'<div class="row mt">' +
+								'<div class="col-md-12 mb">' +
+								'<div class="white-panel pn">' +
+								'<div class="row">' +
+								'<div class="col-md-4">' +
+								'<div class="tx_left">' +
+								'<p>' +
+								'<img src="assets/img/ui-zac.jpg" class="img-circle" width="100">' +
+								'</p>' +
+								'<p><b>' + datas.info.userNickName + '</b>' +
+								'</p>' +
+								'</div>' +
+								'</div>' +
+								//
+								'<div class="col-md-8">' +
+								'<div class="ly">' +
+								'<p>' + data[sh].breviary + '......' +
+								'<a onclick="other(' + data[sh].id + ',' + data[sh].send_id + ')">阅读全文</a>' +
+								'</p>' +
+								'</div>' +
+								'</div>' +
+								'</div>' +
+								'</div>' +
+								'</div>' +
+								'</div>' +
+								'<span class="cd-date">' + data[sh].data + '</span>' +
+								'</div>' +
+								'</div>';
+								if(i%2!=0)
+							$("#list").append(html1);
+						},
+						error: function(e) {
+							alert(e);
+						}
+					});
+				}
+				var html3 =
+					'</section>' +
+					'<button class="btn btn-block" style="width: 100%;">加载更多</button>' +
+					'</div>';
+				$("#list").append(html3);
+			},
+			error: function(e) {
+				alert(e);
+			}
+		});
+
+		function other(id, send) {
+			localStorage.setItem('wzid', id);
+			localStorage.setItem('sendId', send);
+			window.location.href = 'Message.html';
+		}
+	</script>
 
 </html>

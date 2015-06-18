@@ -51,7 +51,7 @@
 				<div class="top-menu">
 					<ul class="nav pull-right top-menu">
 						<li>
-							<a class="logout" href="#">
+							<a class="logout" onclick="logout()">
 								<span class="fa fa-power-off"></span>　退出</a>
 						</li>
 					</ul>
@@ -138,13 +138,13 @@
 						<div class="col-lg-9 main-chart">
 							<div class="row mt">
 								<div class="col-md-12 mb">
-									<div class="white-panel pn" style="height: 100%;" >
+									<div class="white-panel pn" style="height: 100%;">
 										<div class="white-header">
 											<h5>我的动态</h5>
 											<a href="Dynamic.html"><span class="fa fa-tablet">   卡片</span></a>&nbsp;&nbsp;&nbsp;
 											<a href="Dynamic_List.html"><span class="fa fa-list">   列表</span></a>
 										</div>
-											<div id="list"></div>
+										<div id="list"></div>
 										<!--<div class="row mt" >-->
 
 										<button class="btn btn-block" style="width: 100%;">没有更多了</button>
@@ -156,7 +156,7 @@
 						<!--中间部分结束-->
 
 						<!--右侧部分开始-->
-											<div class="col-lg-3 ds">
+						<div class="col-lg-3 ds">
 							<!--心情小记开始-->
 							<h3>心情小记</h3>
 							<!--输入日记-->
@@ -174,9 +174,9 @@
 							<!--输入日记结束-->
 							<!--日记1开始-->
 							<div id="daily">
-								
-								
+
 							</div>
+							<button class="btn btn-block" style="width: 100%;">没有更多了</button>
 							<!--日记5结束-->
 							<!--心情小记结束-->
 
@@ -302,12 +302,15 @@
 		$.ajax({
 			url: "../controller/message/message_controller.php",
 			dataType: "json",
-			data: {userId:localStorage['userId'],
-			page:1,controller:'GetMessageListByUserId'},
+			data: {
+				userId: localStorage['userId'],
+				page: 1,
+				controller: 'GetMessageListByUserId'
+			},
 			cache: false,
 			success: function(data) {
-				for(var i in data){
-										sh = i;
+				for (var i in data) {
+					sh = i;
 					$.ajax({
 						url: "../controller/user/user_controller.php",
 						dataType: "json",
@@ -315,30 +318,30 @@
 							userId: data[sh].send_id,
 							controller: 'getInfo'
 						},
-						async : false, 
+						async: false,
 						cache: false,
 						success: function(datas) {
-					var html = 		'<div class="row mt">'+
-													'<a href="#">'+
-														'<div class="col-md-12 mb">'+
-															'<div class="col-md-6">'+
-																'<span class="fa fa-star cd-date"> '+data[i].data+'</span>'+
-															'</div>'+
-															'<div class="col-md-6">'+
-																'<span class="fa fa-star cd-date">  From:'+ datas.info.userNickName+'</span>'+
-															'</div>'+
-														'</div>'+
-														'<div class="col-md-12 mb">'+
-															'<div class="col-md-12">'+
-																'<p>'+data[i].breviary+
-																	'<a onclick="other(' + data[sh].id + ',' + data[sh].send_id + ')">阅读全文</a>'+
-																'</p>'+
-															'</div>'+
-														'</div>'+
-													'</a>'+
-												'</div>';
-											$('#list').append(html);
-										}
+							var html = '<div class="row mt">' +
+								'<a href="#">' +
+								'<div class="col-md-12 mb">' +
+								'<div class="col-md-6">' +
+								'<span class="fa fa-star cd-date"> ' + data[i].data + '</span>' +
+								'</div>' +
+								'<div class="col-md-6">' +
+								'<span class="fa fa-star cd-date">  From:' + datas.info.userNickName + '</span>' +
+								'</div>' +
+								'</div>' +
+								'<div class="col-md-12 mb">' +
+								'<div class="col-md-12">' +
+								'<p>' + data[i].breviary +
+								'<a onclick="other(' + data[sh].id + ',' + data[sh].send_id + ')">阅读全文</a>' +
+								'</p>' +
+								'</div>' +
+								'</div>' +
+								'</a>' +
+								'</div>';
+							$('#list').append(html);
+						}
 					});
 				}
 			},
@@ -346,11 +349,13 @@
 				alert(e);
 			}
 		});
-				function other(id, send) {
-			localStorage.setItem('wzid',id);
-			localStorage.setItem('sendId',send);
-			window.location.href='Message.html';
+
+		function other(id, send) {
+			localStorage.setItem('wzid', id);
+			localStorage.setItem('sendId', send);
+			window.location.href = 'Message.html';
 		}
 	</script>
 	<script src="js/init.js"></script>
+
 </html>
