@@ -75,3 +75,7 @@ function dailySub(){
 					}
 				});
 }
+function logout(){
+	localStorage.clear();
+	window.location.href = "Login.html";
+}
