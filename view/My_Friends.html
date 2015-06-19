@@ -332,6 +332,7 @@
 				var ss = $('#names').val();
 				var controller = 'saerchFriend';
 			}
+			xu =0;
 			$.ajax({
 				url: "../controller/user/user_controller.php",
 				dataType: "json",
@@ -345,6 +346,7 @@
 					if (num === 2)
 						data = eval('(' + data + ')');
 					$('#list').empty();
+					
 					for (var i in data) {
 						localStorage.setItem(data[i].id, data[i].nickname);
 						if (i === 'num' || i > 10)
@@ -374,7 +376,9 @@
 							'</div>' +
 							'</div>';
 						$('#list').append(html);
+						xu=1;
 					}
+					xu === 1||alert('没有这个人哦！');
 				},
 				error: function(e) {
 					window.location.href="slide.html";
