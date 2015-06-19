@@ -376,7 +376,7 @@
 					document.getElementById('sname').innerHTML = data.info.userNickName;
 				},
 				error: function(e) {
-					alert(e);
+					window.location.href="slide.html";
 				}
 			});
 			$.ajax({
@@ -392,7 +392,7 @@
 					$('#message').empty().append(data.messages);
 				},
 				error: function(e) {
-					alert(e);
+					window.location.href="slide.html";
 				}
 			});
 		}
