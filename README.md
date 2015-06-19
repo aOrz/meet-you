@@ -18,8 +18,8 @@
 2. 推荐使用Chrome或者Firefox浏览器，IE兼容IE8及以上版本。
 3. 关于APP测试，因未购买App Store开发者账号，没有开发者证书，未越狱Iphone无法安装，越狱Iphone请自行Google安装方法（没有苹果没试过）。
 4. APP内部数据服务器地址为`http://172.21.64.1/meet/文件`服务器与手机在同一局域网内，且服务器IP为`172.21.64.1`，安装目录为`meet`才可进行测试否则将无法进行，也可将APP代码（在`app/code`目录下）进行修改，使用Hbuilder进行打包测试。
-5. APP代码虽为Html+css+js，但是使用了MUI，Native.js等框架还有基座APP API，手势操作等，所以直接在浏览器打开为不能完成功能。
-
+5. APP代码虽为Html+css+js，但是使用了MUI，Native.js等框架还有HTML5+扩展api，手势操作等，所以直接在浏览器打开为不能完成功能。
+6.  采用图灵机器人API以及网易云音乐API，需要在联网状态下进行测试。
 ####技术参数：####
 
 
@@ -27,3 +27,4 @@
 2. 前后端完全分离，数据传输采用json格式，APP端与WEB端采用同一后台，便于维护。
 3. 前端获取到Json数据后采用JavaScript动态解析，JavaScript占比达79.5%。
 4. 所有的请求为Ajax请求，实现无刷新动态加载。
+5. 使用框架：  Jquery，Bootstrap，MUI，MUI.js，Native.js,HTML5+扩展api以及JQuery和Bootstrap插件。
