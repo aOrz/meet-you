@@ -9,6 +9,7 @@ class User
 	
 	public function __construct()
 	{
+		//echo $_GET['userTel'];
 		$this->userId =  @$_GET['userId'];
 		$this->info = array(
 			'userNickName' =>  @$_GET['userNickName'],
@@ -64,6 +65,7 @@ class User
 			$sql = "INSERT INTO `user`(`id`, `pwd`, `mail`, `tel`, `nickname`)
 			VALUES 
 			(Null,'".$nUserPWD."','".$nUserMail."','".$nUserTel."','".$nUserNickName."')";
+			//echo $sql;
 			if(mysqli_query($GLOBALS['DB'], $sql)){
 				$this->userID = mysqli_insert_id($GLOBALS['DB']);
 				return $this->userID;
