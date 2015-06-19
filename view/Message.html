@@ -24,6 +24,7 @@
 				display: none;
 			}
 		</style>
+
 	</head>
 
 	<body>
@@ -204,9 +205,9 @@
 										<div class="row">
 											<div class="col-sm-12 col-xs-12 goleft">
 												<p>个性签名
-													<textarea id="cg_intro">
+													<label id="cg_intros">
 
-													</textarea>
+													</label>
 												</p>
 											</div>
 										</div>
@@ -221,62 +222,8 @@
 										<div class="white-header">
 											<h5><span id="sname">王振</span>的留言</h5>
 										</div>
-										<div class="row" id="message">
-											<!--一条动态开始-->
-											<div class="col-md-12 mb">
-												<div class="row mt">
-													<div class="col-md-12 mb">
-														<div class="white-panel pn">
-															<div class="row">
-																<div class="col-md-12">
-																	<div class="ly">
-																		<span class="cd-date">2015-01-06 12:24</span>
-																		<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上 好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习......
-																		</p>
-																	</div>
-																	<div class="ly">
-																		<span class="cd-date">2015-01-06 12:24</span>
-																		<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上 好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习......
-																		</p>
-																	</div>
-																	<div class="ly">
-																		<span class="cd-date">2015-01-06 12:24</span>
-																		<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上 好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习......
-																		</p>
-																	</div>
-																	<div class="ly">
-																		<span class="cd-date">2015-01-06 12:24</span>
-																		<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上 好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习......
-																		</p>
-																	</div>
-																	<div class="ly">
-																		<span class="cd-date">2015-01-06 12:24</span>
-																		<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上 好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习......
-																		</p>
-																	</div>
-																	<div class="ly">
-																		<span class="cd-date">2015-01-06 12:24</span>
-																		<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上 好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习......
-																		</p>
-																	</div>
-																	<div class="ly">
-																		<span class="cd-date">2015-01-06 12:24</span>
-																		<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上 好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习......
-																		</p>
-																	</div>
-																	<div class="ly">
-																		<span class="cd-date">2015-01-06 12:24</span>
-																		<p>好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上 好好学习天天向上好好学习天天向上好好学习天天向上好好学习天天向上好好学习......
-																		</p>
-																	</div>
-																	<button class="btn btn-block" style="width: 100%;">没有更多了</button>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-											<!--一条动态结束-->
+										<div class="row white-left" id="message" >
+
 										</div>
 
 									</div>
@@ -346,7 +293,7 @@
 	<script type="application/javascript">
 		var elementnames = ["cg_name",
 			"cg_email", "cg_sex", "cg_phonenumber",
-			"cg_QQ", "cg_weibo", "cg_weixin", "cg_school", "cg_intro"
+			"cg_QQ", "cg_weibo", "cg_weixin", "cg_school", "cg_intros"
 		];
 		elements = ["", "", "", "", "", "", "", "", ""];
 		var i;
@@ -372,8 +319,10 @@
 					elements[5].innerHTML = data.info.userWeiBo
 					elements[6].innerHTML = data.info.userWeiXin
 					elements[7].innerHTML = data.info.userSchool
-					elements[8].innerHTML = data.info.userIntroduction
-					document.getElementById('sname').innerHTML = data.info.userNickName;
+					elements[8].value = data.info.userIntroduction
+					// alert(data.info.userIntroduction)
+					document.getElementById('sname').value = data.info.userNickName;
+					document.getElementById('cg_intros').innerHTML = data.info.userNickName;
 				},
 				error: function(e) {
 					window.location.href="slide.html";

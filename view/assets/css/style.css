@@ -1043,6 +1043,12 @@ ul.top-menu > li > a:focus {
 	background: #ffffff;
 	/*color: #ccd1d9;*/
 }
+.white-left {
+	text-align: left;
+	font-size: 0.5em;
+	background: #ffffff;
+	/*color: #ccd1d9;*/
+}
 .white-panel p {
 	margin-top: 5px;
 	margin-left: 15px;
