@@ -24,7 +24,7 @@ function CheckLogin() {
 					//saveStorage
 					window.localStorage.setItem("userId", data);
 					window.event.returnValue = false;
-					window.location.href = "Dynamic.html";
+					window.location.href = "dynamic.html";
 
 				}
 			},
@@ -89,7 +89,7 @@ function CheckRegister() {
 					alert("注册成功");
 					window.localStorage.setItem("userId", data);
 					window.event.returnValue = false;
-					window.location.href = "Dynamic.html";
+					window.location.href = "dynamic.html";
 				} else {
 					alert("注册失败");
 				}
