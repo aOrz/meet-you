@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="assets/css/bootstrap.css" rel="stylesheet">
+		<!--external css-->
+		<link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="assets/css/zabuto_calendar.css">
+		<link rel="stylesheet" type="text/css" href="assets/js/gritter/css/jquery.gritter.css" />
+		<link rel="stylesheet" type="text/css" href="assets/lineicons/style.css">
+
+		<!-- Custom styles for this template -->
+		<link href="assets/css/style.css" rel="stylesheet">
+		<link href="assets/css/style-responsive.css" rel="stylesheet">
+
+		<script src="assets/js/chart-master/Chart.js"></script>
+
+		<link href="css/time.css" rel="stylesheet" />
+		<style type="text/css">
+			.btn {
+				width: 50%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<section id="container">
+			<!--头部开始-->
+			<header class="header black-bg">
+				<!--侧滑菜单栏开始-->
+				<div class="sidebar-toggle-box">
+					<div class="fa fa-bars tooltips" data-placement="right" data-original-title="隐藏侧边栏"></div>
+				</div>
+				<!--侧滑菜单栏结束-->
+				<!--导航栏logo开始-->
+				<a href="#" class="logo">
+					<img src="img/Logo.png" style="width: 70px;" />
+				</a>
+				<!--导航栏logo结束-->
+				<!--退出按钮开始-->
+				<div class="top-menu">
+					<ul class="nav pull-right top-menu">
+						<li>
+
+							<a class="logout" href="#">
+								<span class="fa fa-power-off"></span>　退出</a>
+						</li>
+					</ul>
+				</div>
+				<!--退出按钮结束-->
+			</header>
+			<!--头部结束-->
+
+			<!--左侧侧滑菜单开始-->
+			<aside>
+				<div id="sidebar" class="nav-collapse ">
+					<!--菜单内容开始-->
+					<ul class="sidebar-menu" id="nav-accordion">
+						<!--头像昵称开始-->
+						<p class="centered">
+							<a href="Personal_Information.html">
+								<img src="img/ui-sam.jpg" class="img-circle" width="70">
+							</a>
+						</p>
+						<h5 class="centered" id="NickName">耳朵3</h5>
+						<!--头像昵称结束-->
+						<!--个性签名开始-->
+						<div class="gxq">
+							<p id="Introduction">还没好好的感受雪花绽放的温柔~</p>
+						</div>
+						<!--个性签名结束-->
+						<!--我的动态开始-->
+						<li class="mt">
+							<a href="Dynamic.html">
+								<i class="fa fa-refresh"></i>
+								<span>我的动态</span>
+								<i class="fa fa-angle-right" style="float: right;"></i>
+							</a>
+						</li>
+						<!--我的动态结束-->
+						<!--个人资料开始-->
+						<li class="mxt">
+							<a href="Personal_Information.html">
+								<i class="fa fa-user"></i>
+								<span>个人资料</span>
+								<i class="fa fa-angle-right" style="float: right;"></i>
+							</a>
+						</li>
+						<!--个人资料结束-->
+						<!--我的好友开始-->
+						<li class="mxt">
+							<a href="My_Friends.html">
+								<i class="fa fa-users"></i>
+								<span>我的好友</span>
+								<i class="fa fa-angle-right" style="float: right;"></i>
+							</a>
+						</li>
+						<!--我的好友结束-->
+						<!--我的同学录开始-->
+						<li class="sub-menu">
+							<a href="Alumni_Page.html">
+								<i class="fa fa-file"></i>
+								<span>我的同学录</span>
+								<i class="fa fa-angle-right" style="float: right;"></i>
+							</a>
+						</li>
+						<!--我的同学录结束-->
+						<!--关于我们开始-->
+						<li class="sub-menu">
+							<a class="active" href="">
+								<i class="fa fa-star"></i>
+								<span>关于我们</span>
+								<i class="fa fa-angle-right" style="float: right;"></i>
+							</a>
+						</li>
+						<!--关于我们结束-->
+					</ul>
+					<!-- sidebar menu end-->
+				</div>
+			</aside>
+			<!--左侧侧滑菜单结束-->
+
+			<!--正文开始-->
+			<section id="main-content">
+				<section class="wrapper">
+					<div class="row">
+						<!--中间部分开始-->
+						<div class="col-lg-9 main-chart">
+							<div class="row mt">
+								<div class="col-md-12 mb">
+									<div class="white-panel pn" style="height: 100%;">
+
+										<!--我收到的同学录标题开始-->
+										<div class="white-header">
+											<h5>我们的信息</h5>
+										</div>
+										<!--我收到的同学录标题结束-->
+
+										<!--我收到的同学录开始-->
+										<style>
+											.ssm{
+												padding: 30px;
+												clear: both;
+											}
+											.ssm img{
+												display: inline;
+												float: left;
+												width: 30%;
+											}
+											.ssm .bubble{
+												float: right;
+												display: inline;
+											}
+											.wz{
+												padding: 30px;
+												clear: both;
+											}
+											.wz img{
+												display: inline;
+												float: right;
+												width: 30%;
+											}
+											.wz .bubble{
+												float: left;
+												display: inline;
+											}
+											.ssm .article{
+												float: left;
+											}
+											.wz .article{
+												float: right;
+											}
+										</style>
+										<div class="row mt" id="list">
+											<div class="ssm">
+												<img src="img/wz.png"/>
+												<div class="bubble" >
+													<div class="demo clearfix">
+														<span class="triangle"></span>
+														<div class="article">
+															<p>姓名：孙淑敏</p>
+															<p>QQ：1065004086</p>
+															<p>有问题欢迎咨询哦~</p>
+														</div>
+													</div>
+												</div>
+											</div>
+											<br />
+											<div class="wz">
+												<img src="img/ssm.png"/>
+												<div class="bubble">
+													<div class="demo clearfix fr">
+														<span class="triangle right"></span>
+														<div class="article">
+															<p>姓名：王振</p>
+															<p>QQ：1065004086</p>
+															<p>有问题欢迎咨询哦~</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--中间部分结束-->
+
+						<!--右侧部分开始-->
+							<div class="col-lg-3 ds">
+							<!--心情小记开始-->
+							<h3>心情小记</h3>
+							<!--输入日记-->
+							<div class="inputdiary">
+								<form method="post" action="#">
+									<p></p>
+									<textarea rows="4" wrap="soft" id="dailyCon" placeholder="今天发生了什么呢？写点吧..."></textarea>
+									<div style="margin-top: -10px;">
+										<span class="fa fa-upload" style="position: relative;top: 25px;left: 100px;"></span>
+										<input type="button" onclick="dailySub()" value="发布" />
+									</div>
+
+								</form>
+							</div>
+							<!--输入日记结束-->
+							<!--日记1开始-->
+							<div id="daily">
+								
+								
+							</div>
+							<button class="btn btn-block" style="width: 100%;">没有更多了</button>
+							<!--日记5结束-->
+							<!--日记5结束-->
+							<!--心情小记结束-->
+
+							<!--日历开始-->
+							<div class="Calendar">
+								<div id="idCalendarPre">&lt;&lt;</div>
+								<div id="idCalendarNext">&gt;&gt;</div>
+								<span id="idCalendarYear">2008</span>年 <span id="idCalendarMonth">8</span>月
+								<table cellspacing="0">
+									<thead>
+										<tr>
+											<td>日</td>
+											<td>一</td>
+											<td>二</td>
+											<td>三</td>
+											<td>四</td>
+											<td>五</td>
+											<td>六</td>
+										</tr>
+									</thead>
+									<tbody id="idCalendar">
+									</tbody>
+								</table>
+							</div>
+							<!--日历结束-->
+
+						</div>
+						<!--右侧部分结束-->
+					</div>
+				</section>
+			</section>
+			<!--正文结束-->
+
+		</section>
+	</body>
+
+	<script type="text/javascript">
+		var cale = new Calendar("idCalendar", {
+			SelectDay: new Date().setDate(10),
+			onSelectDay: function(o) {
+				o.className = "onSelect";
+			},
+			onToday: function(o) {
+				o.className = "onToday";
+			},
+			onFinish: function() {
+				$("idCalendarYear").innerHTML = this.Year;
+				$("idCalendarMonth").innerHTML =
+					this.Month;
+				var flag = [10, 15, 20];
+				for (var i = 0, len = flag.length; i < len; i++) {
+					this.Days[flag[i]].innerHTML = "<a href='javascript:void(0);' onclick=
+		
+		\"alert('日期是:" + this.Year + "/" + this.Month + "/" + flag[i] + "');return false;\">" + flag[i] + "</a>";
+				}
+			}
+		});
+		$("idCalendarPre").onclick = function() {
+			cale.PreMonth();
+		}
+		$("idCalendarNext").onclick = function() {
+			cale.NextMonth();
+		}
+	</script>
+	<script src="js/myJS.js"></script>
+	<script src="js/Calender.js"></script>
+	<script src="assets/js/jquery.js"></script>
+	<script src="assets/js/jquery-1.8.3.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+	<script src="assets/js/jquery.scrollTo.min.js"></script>
+	<script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+	<script src="assets/js/jquery.sparkline.js"></script>
+
+	<!--common script for all pages-->
+	<script src="assets/js/common-scripts.js"></script>
+
+	<script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
+	<script type="text/javascript" src="assets/js/gritter-conf.js"></script>
+
+	<!--script for this page-->
+	<script src="assets/js/sparkline-chart.js"></script>
+	<script src="assets/js/zabuto_calendar.js"></script>
+	<script src="js/init.js"></script>
+	<script type="text/javascript">
+		$.ajax({
+			url: "../controller/message/message_controller.php",
+			dataType: "json",
+			data: {
+				userId: localStorage['userId'],
+				page: 1,
+				controller: 'GetMessageListByUserId'
+			},
+			cache: false,
+			success: function(data) {
+				for (var i in data) {
+					sh = i;
+					$.ajax({
+						url: "../controller/user/user_controller.php",
+						dataType: "json",
+						data: {
+							userId: data[sh].send_id,
+							controller: 'getInfo'
+						},
+						async: false,
+						cache: false,
+						success: function(datas) {
+							alert(i);
+							var html1 = '<div class="col-md-12 mb">' +
+								'<section id="cd-timeline" class="cd-container">' +
+								//一条同学录开始
+								'<div class="cd-timeline-block">' +
+								//
+								'<div class="cd-timeline-img cd-picture">' +
+								'<img src="img/cd-icon-picture.svg" alt="Picture">' +
+								'</div>' +
+								//
+								'<div class="cd-timeline-content">' +
+								'<div class="row mt">' +
+								'<div class="col-md-12 mb">' +
+								'<div class="white-panel pn">' +
+								'<div class="row">' +
+								'<div class="col-md-4">' +
+								'<div class="tx_left">' +
+								'<p>' +
+								'<img src="assets/img/ui-zac.jpg" class="img-circle" width="100">' +
+								'</p>' +
+								'<p><b>' + datas.info.userNickName + '</b>' +
+								'</p>' +
+								'</div>' +
+								'</div>' +
+								//
+								'<div class="col-md-8">' +
+								'<div class="ly">' +
+								'<p>' + data[sh].breviary + '......' +
+								'<a onclick="other(' + data[sh].id + ',' + data[sh].send_id + ')">阅读全文</a>' +
+								'</p>' +
+								'</div>' +
+								'</div>' +
+								'</div>' +
+								'</div>' +
+								'</div>' +
+								'</div>' +
+								'<span class="cd-date">' + data[sh].data +
+								'</span>' +
+								'</div>' +
+								'</div>' +
+								///////
+								//一条同学录开始
+								'<div class="cd-timeline-block">' +
+								//
+								'<div class="cd-timeline-img cd-movie">' +
+								'<img src="img/cd-icon-movie.svg" alt="Movie">' +
+								'</div>' +
+								//
+								'<div class="cd-timeline-content">' +
+								'<div class="row mt">' +
+								'<div class="col-md-12 mb">' +
+								'<div class="white-panel pn">' +
+								'<div class="row">' +
+								'<div class="col-md-4">' +
+								'<div class="tx_left">' +
+								'<p>' +
+								'<img src="assets/img/ui-zac.jpg" class="img-circle" width="100">' +
+								'</p>' +
+								'<p><b>' + datas.info.userNickName + '</b>' +
+								'</p>' +
+								'</div>' +
+								'</div>' +
+								//
+								'<div class="col-md-8">' +
+								'<div class="ly">' +
+								'<p>' + data[sh].breviary + '......' +
+								'<a onclick="other(' + data[sh].id + ',' + data[sh].send_id + ')">阅读全文</a>' +
+								'</p>' +
+								'</div>' +
+								'</div>' +
+								'</div>' +
+								'</div>' +
+								'</div>' +
+								'</div>' +
+								'<span class="cd-date">' + data[sh].data '</span>' +
+								'</div>' +
+								'</div>';
+							$("#list").append(html1);
+						},
+						error: function(e) {
+							alert(e);
+						}
+					});
+				}
+				var html3 =
+					'</section>' +
+					'<button class="btn btn-block" style="width: 100%;">加载更多</button>' +
+					'</div>';
+				$("#list").append(html3);
+			},
+			error: function(e) {
+				alert(e);
+			}
+		});
+
+		function other(id, send) {
+			localStorage.setItem('wzid', id);
+			localStorage.setItem('sendId', send);
+			window.location.href = 'Message.html';
+		}
+	</script>
+	<style>
+		.bubble {
+			margin: 0px auto;
+			width: 70%;
+		}
+		.demo {
+			margin-bottom: 20px;
+			padding-left: 50px;
+			position: relative;
+		}
+		.triangle {
+			position: absolute;
+			top: 50%;
+			margin-top: -8px;
+			left: 42px;
+			display: block;
+			width: 0;
+			height: 0;
+			overflow: hidden;
+			line-height: 0;
+			font-size: 0;
+			border-bottom: 8px solid #FFF;
+			border-top: 8px solid #FFF;
+			border-left: none;
+			border-right: 8px solid #3079ED;
+		}
+		.demo .article {
+			font-size: 17px;
+			float: left;
+			color: #FFF;
+			display: inline-block;
+			*display: inline;
+			zoom: 1;
+			padding: 5px 10px;
+			border: 1px solid #3079ED;
+			background: #eee;
+			border-radius: 5px;
+			background-color: #4D90FE;
+			background-image: -webkit-gradient(linear, left top, left bottom, from(#4D90FE), to(#4787ED));
+			background-image: -webkit-linear-gradient(top, #4D90FE, #4787ED);
+			background-image: -moz-linear-gradient(center top, #4D90FE, #4787ED);
+			background-image: linear-gradient(top, #4D90FE, #4787ED);
+		}
+		.fr {
+			padding-left: 0px;
+			padding-right: 50px;
+		}
+		.fr .triangle {
+			left: auto;
+			right: 42px;
+			border-bottom: 8px solid #FFF;
+			border-top: 8px solid #FFF;
+			border-right: none;
+			border-left: 8px solid #3079ED;
+		}
+		.fr .article {
+			float: right;
+		}
+	</style>
+
+</html>
