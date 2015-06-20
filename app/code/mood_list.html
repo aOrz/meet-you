@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<script src="js/mui.min.js"></script>
+		<script src="js/app.js"></script>
+		<style>
+			html,
+			body {
+				background-color: gainsboro;
+			}
+			.mui-table h4 {
+				line-height: 21px;
+				font-weight: 500;
+			}
+			.mui-table .oa-icon-star-filled {
+				color: #f14e41;
+			}
+			.changcolor {
+				background-color: powderblue;
+			}
+			.mui-text-right {
+				width: 50px;
+			}
+			li {
+				border-top: 17px solid gainsboro;
+				border-right: 17px solid gainsboro;
+				border-left: 17px solid gainsboro;
+				/*border-radius: 20px;*/
+			}
+			.cell {
+				position: relative;
+				padding: 11px 15px;
+				overflow: hidden;
+				-webkit-touch-callout: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--下拉刷新容器-->
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<!--数据列表-->
+				<ul class="mui-table-view mui-table-view-striped mui-table-view-condensed">
+
+				</ul>
+			</div>
+		</div>
+		<script>
+			mui.init({
+				swipeBack: false,
+				pullRefresh: {
+					container: '#pullrefresh',
+					up: {
+						contentrefresh: '正在加载...',
+						contentnomore: '没有更多数据了',
+						callback: pullupRefresh
+					}
+				}
+			});
+			var count = 0;
+			/**
+			 * 上拉加载具体业务实现
+			 */
+			function pullupRefresh() {
+				setTimeout(function() {
+					var table = document.body.querySelector('.mui-table-view');
+					Info = {};
+					Info.userId = localStorage.getItem('userId');
+					Info.page = count;
+					Info.controller = 'GetMoodByPage';
+					mui.ajax('http://172.21.64.1/meet/controller/mood/mood_controller.php', {
+						data: Info,
+						dataType: 'json', //服务器返回json格式数据
+						type: 'get', //HTTP请求类型
+						timeout: 10000, //超时时间设置为10秒；
+						success: function(data) {
+							if (!data) {
+								mui('#pullrefresh').pullRefresh().endPullupToRefresh(1); //参数为true代表没有更多数据了。
+							}
+							for (var s in data) {
+								var li = document.createElement('li');
+								li.className = 'cell';
+								var str = data[s].moods
+								strs = str.split("@")
+								li.innerHTML = "<div class='mui-table'><div ><h4 class='mui-ellipsis'>" + strs[0] + "</h4>" + "<p>" +
+									strs[1] + "</p><p class='mui-h6 mui-ellipsis mui-pull-right'>" + data[s].indate + "</p></div></div>";
+								table.appendChild(li);
+								mui('#pullrefresh').pullRefresh().endPullupToRefresh(0); //参数为true代表没有更多数据了。
+							}
+							count++;
+						},
+						error: function(xhr, type, errorThrown) {
+							//异常处理；
+							plus.nativeUI.toast('服务器错误');
+						}
+					});
+				}, 1500);
+			}
+			if (mui.os.plus) {
+				mui.plusReady(function() {
+					setTimeout(function() {
+						mui('#pullrefresh').pullRefresh().pullupLoading();
+					}, 1000);
+				});
+			} else {
+				mui.ready(function() {
+					mui('#pullrefresh').pullRefresh().pullupLoading();
+				});
+			}
+		</script>
+	</body>
+
+</html>

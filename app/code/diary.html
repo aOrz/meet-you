@@ -1,0 +1,77 @@
+<!DOCTYPE html >
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="css/mui.min.css" />
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<link rel="stylesheet" href="css/style.css" />
+		<title></title>
+
+		<script>
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: white;"></a>
+			<h1 class="mui-title">心情说</h1>
+		</header>
+		<div class="mui-content" style="margin-top: 45px;">
+			<div class="mui-input-row">
+				<br />
+				<input class="text" type="text" placeholder="请输入标题" id="title">
+				<br />
+			</div>
+			<hr style="width: 90%;margin: 0 auto;" />
+			<div class="mui-input-row">
+				<label style="width: 100px">心情内容:</label>
+				<br />
+				<textarea id="text" style="margin: 0 20px;" cols="5" rows="15"></textarea>
+			</div>
+			<hr style="width: 90%;margin: 0 auto;" />
+		</div>
+
+		<div class="tj">
+			<button name="submit" class="mui-btn mui-btn-positive" style="width: 90%;border-radius: 10px;" type="button" onclick="sub();">提交</button>
+		</div>
+		</div>
+		<script>
+			function sub() {
+				var title = document.getElementById('title').value;
+				var text = document.getElementById('text').value;
+				if (!title || !text) {
+					mui.alert("写完了再存呀~_~");
+					return 0;
+				}
+				Info = {};
+				Info.userId = localStorage.getItem('userId');
+				Info.moods = title + '@' + text;
+				Info.controller = 'SaveMood';
+				mui.ajax('http://172.21.64.1/meet/controller/mood/mood_controller.php', {
+					data: Info,
+					dataType: 'json', //服务器返回json格式数据
+					type: 'get', //HTTP请求类型
+					timeout: 10000, //超时时间设置为10秒；
+					success: function(data) {
+						//alert(data)
+						if (!data) {
+							plus.nativeUI.toast('请求失败');
+						}
+						plus.nativeUI.toast('心情存好了');
+						//history.go(0);
+					},
+					error: function(xhr, type, errorThrown) {
+						//异常处理；
+						plus.nativeUI.toast('服务器错误');
+					}
+				});
+			}
+		</script>
+	</body>
+
+</html>

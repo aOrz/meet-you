@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="css/mui.min.css">
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<link rel="stylesheet" href="css/style.css" />
+		<style type="text/css">
+			img {
+				border-radius: 50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<a class="mui-action-back mui-icon mui-icon-plus mui-pull-right"></a>
+			<h1 class="mui-title">圈子</h1>
+		</header>
+		<div class="mui-content-padded" style="margin-top: 48px;">
+			<h5>查找好友.圈子：</h5>
+			<form action="?" method="get" onsubmit="onSearch();return false;">
+				<div class="mui-input-row mui-search">
+					<input type="search" id="search" class="mui-input-clear" placeholder="添加好友" id="serach">
+				</div>
+			</form>
+			<div>
+				<ul class="mui-table-view" id="friendList">
+					<li class="mui-table-view-cell mui-hidden">cared
+						<div id="M_Toggle" class="mui-switch mui-active">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<a href="#">
+							<img class="mui-media-object mui-pull-left" src="img/imgs.jpg">
+							<div class="mui-media-body">
+								幸福
+								<p class='mui-ellipsis'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+							</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<a href="#">
+							<img class="mui-media-object mui-pull-left" src="img/imgs.jpg">
+							<div class="mui-media-body">
+								木屋
+								<p class='mui-ellipsis'>想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+							</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell mui-media">
+						<a href="#">
+							<img class="mui-media-object mui-pull-left" src="http://dcloudio.github.io/mui/assets/img/cbd.jpg">
+							<div class="mui-media-body">
+								CBD
+								<p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+							</div>
+						</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="mui-slider-left mui-disabled">
+							<a class="mui-btn mui-btn-red mui-icon mui-icon-trash"></a>
+							<a class="mui-btn mui-btn-yellow mui-icon mui-icon-paperplane"></a>
+						</div>
+						<div class="mui-slider-right mui-disabled">
+							<a class="mui-btn mui-btn-yellow mui-icon mui-icon-paperplane"></a>
+							<a class="mui-btn mui-btn-red mui-icon mui-icon-trash"></a>
+						</div>
+						<div class="mui-slider-handle">
+							<img class="mui-media-object mui-pull-left" src="http://dcloudio.github.io/mui/assets/img/cbd.jpg">
+							<div class="mui-media-body">
+								CBD
+								<p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="mui-slider-left mui-disabled">
+							<a class="mui-btn mui-btn-yellow mui-icon mui-icon-plus"></a>
+						</div>
+						<div class="mui-slider-right mui-disabled">
+							<a class="mui-btn mui-btn-yellow mui-icon mui-icon-plus"></a>
+						</div>
+						<div class="mui-slider-handle">
+							<img class="mui-media-object mui-pull-left" src="http://dcloudio.github.io/mui/assets/img/cbd.jpg">
+							<div class="mui-media-body">
+								CBD
+								<p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<script>
+				mui.init({
+					swipeBack: true //启用右滑关闭功能
+				});
+
+				function onSearch() {
+					var a = document.getElementById('search').value;
+					app.searchs(a, function(err) {
+						if (err) {
+							plus.nativeUI.toast(err);
+							return;
+						}
+					});
+				}
+
+				function addFriend(friendId) {
+					addInfo = {};
+					addInfo.userId = localStorage['userId'];
+					addInfo.friendId = friendId;
+					addInfo.controller = 'add';
+					mui.ajax('http://172.21.64.1/meet/controller/user/user_controller.php', {
+						data: addInfo,
+						dataType: 'json', //服务器返回json格式数据
+						type: 'get', //HTTP请求类型
+						timeout: 10000, //超时时间设置为10秒；
+						success: function(data) {
+							if (!data) {
+								plus.nativeUI.toast('请求失败');
+							}
+							plus.nativeUI.toast('添加成功');
+						},
+						error: function(xhr, type, errorThrown) {
+							//异常处理；
+							plus.nativeUI.toast('服务器错误');
+						}
+					});
+				}
+
+				function delFriend(friendId) {
+					delInfo = {};
+					delInfo.userId = localStorage['userId'];
+					delInfo.friendId = friendId;
+					delInfo.controller = 'delFriend';
+					if (confirm("确认删除？")) {
+						mui.ajax('http://172.21.64.1/meet/controller/user/user_controller.php', {
+							data: delInfo,
+							dataType: 'json', //服务器返回json格式数据
+							type: 'get', //HTTP请求类型
+							timeout: 10000, //超时时间设置为10秒；
+							success: function(data) {
+								if (!data) {
+									plus.nativeUI.toast('请求失败');
+								}
+								plus.nativeUI.toast('删除成功');
+								history.go(0);
+							},
+							error: function(xhr, type, errorThrown) {
+								//异常处理；
+								plus.nativeUI.toast('服务器错误');
+							}
+						});
+					}
+				}
+
+				function message(friendId) {
+					localStorage.setItem('friendId', friendId);
+					mui.openWindow({
+						id: "message",
+						url: "message.html"
+					});
+				}
+				mui.ready(function() {
+					app.getAllCircle(localStorage['userId'], function(err) {
+						if (err) {
+							plus.nativeUI.toast(err);
+							return;
+						}
+					});
+					var plus = mui('.mui-icon-trash');
+					for (var i in plus) {
+						plus[i].addEventListener('tap', function() {
+							alert(10)
+						})
+					}
+				})
+			</script>
+			<script type="text/javascript" src="js/app.js"></script>
+	</body>
+
+</html>

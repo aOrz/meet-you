@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="css/mui.min.css">
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">音悦台</h1>
+		</header>
+		<div class="mui-content-padded" style="margin-top: 48px;">
+			<h5>搜索音乐：</h5>
+			<form action="?" method="get" onsubmit="onSearch();return false;">
+				<div class="mui-input-row mui-search">
+					<input type="search" id="search" class="mui-input-clear" placeholder="歌手，歌名" id="serach">
+				</div>
+			</form>
+			<div>
+				<ul class="mui-table-view" id="friendList">
+					<li class="mui-table-view-cell mui-hidden">cared
+						<div id="M_Toggle" class="mui-switch mui-active">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</li>
+					<li onclick="myControl.selectList(this,0)" class="mui-table-view-cell mui-media">
+						<div class="frmPlay"><i></i>
+						</div>
+						<div class="musicName">
+						<span style="display:none;" class="musicData" pic="ywaq.jpg" title="因为爱情-王菲" value="因为爱情"></span>
+						</div>
+						<div class="l">
+							<img class="picStyle" src="img/72.png">
+						</div>
+						<div class="textBox">因为爱情-王菲
+							<p>金沙-他不爱我</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="mui-bar mui-bar-tab info">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-hidden">cared
+					<div id="M_Toggle" class="mui-switch mui-active">
+						<div class="mui-switch-handle"></div>
+					</div>
+				</li>
+				<li class="mui-table-view-cell mui-media" style="background-color: rgb(102, 203, 255);">
+					<img class="mui-media-object mui-pull-left" src="img/72.png">
+					<div class="mui-media-body">
+						<span style=" color: white;" id="musicTitle" >幸福</span>
+						<label id="timeshow" for="time"><span id="currentTime">00:00</span>/<span id="totleTime">00:00</span>
+						</label>
+						<div class="audioControl">
+							<a id="prevButton" class="last" onclick="myControl.prev()" href="javascript:;"></a>
+							<a id="playButton" class="play" onclick="myControl.mainControl()" href="javascript:;"></a>
+							<a id="nextButton" class="next" onclick="myControl.next()" href="javascript:;"></a>
+							<a id="modeButton" class="mode-default" onclick="myControl.selectMode()" href="javascript:;"></a>
+							<a class="border"></a>
+							<a id="playDetail" class="showDetail" href="javascript:;"></a>
+						</div>
+
+					</div>
+
+				</li>
+		</div>
+
+			<div style="display:none;" id="oWindow">dfsdfsdfdsf</div>
+	<script type="text/javascript" src="js/music.js"></script>
+		<script>
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+			mui.plusReady(function() {
+				var p = plus.audio.createPlayer('http://tsmusic24.tc.qq.com/1007827.mp3');
+				p.play();
+			})
+		</script>
+	</body>
+
+</html>
