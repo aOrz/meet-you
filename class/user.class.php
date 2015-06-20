@@ -91,7 +91,6 @@ class User
 		$sUserWeiBo = $this->info['userWeiBo'];
 
 			$sql = "UPDATE `user` SET 
-			`pwd`='".$sUserPWD."',
 			`sex`='".$sUserSex."',
 			`mail`='".$sUserMail."',
 			`tel`='".$sUserTel."',
